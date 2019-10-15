@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="title:动态路由协议-RIP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fairy">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/动态路由协议RIP/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="title:动态路由协议-RIP">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/TI7D6sSgj4ZQUAY.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/aHJDUoKhYSjZ4ns.png">
+<meta property="og:updated_time" content="2019-08-19T01:18:33.193Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fairy">
+<meta name="twitter:description" content="title:动态路由协议-RIP">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/19/TI7D6sSgj4ZQUAY.png">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-动态路由协议RIP" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-meta">
+    <a href="/2019/08/16/动态路由协议RIP/" class="article-date">
+  <time datetime="2019-08-16T12:27:31.445Z" itemprop="datePublished">2019-08-16</time>
+</a>
+    
+    
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>title:动态路由协议-RIP</p>
+<a id="more"></a>
+<h1 id="静态路由与动态路由"><a href="#静态路由与动态路由" class="headerlink" title="静态路由与动态路由"></a>静态路由与动态路由</h1><p>静态路由：管理员手动输入路由器命令管理<br>动态路由：根据拓扑或流量改变而自动调整</p>
+<h1 id="自治系统：内部路由协议和外部路由协议"><a href="#自治系统：内部路由协议和外部路由协议" class="headerlink" title="自治系统：内部路由协议和外部路由协议"></a>自治系统：内部路由协议和外部路由协议</h1><p>自治系统是通用管理域中的网络的集合。<br>内部网关协议在自治系统中工作。<br>外部网关协议连接不同的自治系统。</p>
+<h1 id="路由协议的类型"><a href="#路由协议的类型" class="headerlink" title="路由协议的类型"></a>路由协议的类型</h1><ul>
+<li>距离矢量</li>
+<li>高级距离矢量</li>
+<li>链路状态<h1 id="距离矢量路由协议"><a href="#距离矢量路由协议" class="headerlink" title="距离矢量路由协议"></a>距离矢量路由协议</h1>路由器定期将路由表的副本传递给邻居路由器并累计距离矢量。<br><img src="https://i.loli.net/2019/08/19/TI7D6sSgj4ZQUAY.png" alt="image.png"><h1 id="RIP工作原理（路由表的形成）"><a href="#RIP工作原理（路由表的形成）" class="headerlink" title="RIP工作原理（路由表的形成）"></a>RIP工作原理（路由表的形成）</h1> 1、首先路由器学习到直连网段<br> 路由器开始运行RIP，当路由器的更新周期30秒到了的时候，会向邻居发送路由表<br> Metric：度量值，衡量一条路由好坏的值。发送路由表时Metric值会加1<br> 学习路由时，会学习最佳路由，将Metric值小的路由放到路由表当中<br><img src="https://i.loli.net/2019/08/19/aHJDUoKhYSjZ4ns.png" alt="image.png">  </li>
+</ul>
+<h1 id="RIP解决路由环路的办法"><a href="#RIP解决路由环路的办法" class="headerlink" title="RIP解决路由环路的办法"></a>RIP解决路由环路的办法</h1><p>不一致的路由条目：计数至无穷大和路由环路<br>    1、计数到无穷大<br>每个节点都会维护从自身到每个可能的目的网络的距离</p>
+<p>计数至无穷大的解决方案：定义最大跳数（15跳）<br>                     设置跳数限制以防止无限环路</p>
+<p>2、路由环路<br>   前往网络 10.4.0.0 的数据包在路由器B和C之间来回传递（环路）。</p>
+<p>   路由环路的解决方案：水平分割<br>                    向原始信息的来源方向返回路由信息毫无用处。</p>
+<p>3、路由环路的解决方案：路由毒化和毒性逆转<br>   C：当4.0断开后，路由器将已经断开的路由的距离通告为无穷大。并立刻开启触发更新，向B发送更新包。<br>   B：收到更新包后，将4.0路由标记为“可能已断开”，忽略水平分割，进行毒性逆转，向C发送路由信息，告诉C可能已断开。</p>
+<p>4、路由环路的解决方案：抑制计时器<br>   路由器为网络中的“可能有故障”状态保留条目，以便为其它路由器重新计算拓扑更改留出时间。</p>
+<p>5、路由环路的解决方案：触发更新<br>   路由表发生变化时，路由器发送更新。</p>
+<p><em>小结：在RIP中解决路由环路的办法有定义最大跳数；水平分割；路由毒化与毒性逆转；抑制计时器；触发更新。</em></p>
+<h1 id="RIP路由协议的版本"><a href="#RIP路由协议的版本" class="headerlink" title="RIP路由协议的版本"></a>RIP路由协议的版本</h1><p>RIP v1<br>    发送路由更新时不携带子网掩码，宣告主类网络，属于有类路由协议<br>    发送路由更新时，目标地址为广播地址：255.255.255.255<br>RIP v2<br>发送路由更新时携带子网掩码，属于无类路由协议<br>发送路由更新时，目标地址为组播地址：224.0.0.9</p>
+<h1 id="手动汇总"><a href="#手动汇总" class="headerlink" title="手动汇总"></a>手动汇总</h1><p>开启RIP协议：R1(config)#router rip<br>关闭自动汇总：R1(config-router)#no auto-summary<br>进入se0/0（出口）接口：R1(config)#interface se0/0<br>在接口下进行汇总：R1(config-if)#ip summary-address rip 172.16.0.0 255.255.252.0</p>
+<p>补充：要会看路由表，【120/1】其中rip的管理距离是120, 跳数为1</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/16/第2层交换和STP/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">第2层交换机和生成树协议</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        小仙十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/16/动态路由协议RIP/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/16/第2层交换和STP/">第2层交换机和生成树协议</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/xss进阶/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路眼瞎</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>

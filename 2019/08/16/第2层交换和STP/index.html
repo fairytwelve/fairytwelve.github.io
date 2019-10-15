@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>第2层交换机和生成树协议 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="网桥使用软件来创建和管理过滤表，交换机使用专用的集成电路（ASIC）来创建并维护其过滤表。第2层交换机和网桥在工作的时候要比路由器快很多，因为它们不用花费时间去查看网络层头部的信息。它们只在决定转发、泛洪或是丢弃数据帧之前查看帧的硬件地址。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2层交换机和生成树协议">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/第2层交换和STP/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="网桥使用软件来创建和管理过滤表，交换机使用专用的集成电路（ASIC）来创建并维护其过滤表。第2层交换机和网桥在工作的时候要比路由器快很多，因为它们不用花费时间去查看网络层头部的信息。它们只在决定转发、泛洪或是丢弃数据帧之前查看帧的硬件地址。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/08/16/vkO9hw4cmHEYUVN.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/16/4PFnSGCzqmY7jOb.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/16/ImQZfDnz98liASe.png">
+<meta property="og:updated_time" content="2019-08-22T06:18:04.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2层交换机和生成树协议">
+<meta name="twitter:description" content="网桥使用软件来创建和管理过滤表，交换机使用专用的集成电路（ASIC）来创建并维护其过滤表。第2层交换机和网桥在工作的时候要比路由器快很多，因为它们不用花费时间去查看网络层头部的信息。它们只在决定转发、泛洪或是丢弃数据帧之前查看帧的硬件地址。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/16/vkO9hw4cmHEYUVN.png">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-第2层交换和STP" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      第2层交换机和生成树协议
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/16/第2层交换和STP/" class="article-date">
+  <time datetime="2019-08-16T09:54:33.571Z" itemprop="datePublished">2019-08-16</time>
+</a>
+    
+    
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>网桥使用软件来创建和管理过滤表，交换机使用专用的集成电路（ASIC）来创建并维护其过滤表。<br>第2层交换机和网桥在工作的时候要比路由器快很多，因为它们不用花费时间去查看网络层头部的信息。它们只在决定转发、泛洪或是丢弃数据帧之前查看帧的硬件地址。</p>
+<a id="more"></a>
+<h1 id="第2层交换机"><a href="#第2层交换机" class="headerlink" title="第2层交换机"></a>第2层交换机</h1><h2 id="交换式服务"><a href="#交换式服务" class="headerlink" title="交换式服务"></a>交换式服务</h2><p>与集线器不同，交换机能够创建私有的、专用的冲突域，并且能够在每个端口上提供独立的带宽。<br>第2层交换机提供以下功能：<br>☆基于硬件的桥接（ASIC）<br>☆线速<br>☆低延迟<br>☆低成本<br>第2层交换高效的原因是因为它没有对数据包进行任何的修改。设备只是读取数据包的帧封装，与路由选择的过程相比，交换过程就显得很快捷，并且不容易出错。</p>
+<p>第2层交换同时连接工作组和网络分段（分割冲突域）</p>
+<h2 id="第2层交换的局限性"><a href="#第2层交换的局限性" class="headerlink" title="第2层交换的局限性"></a>第2层交换的局限性</h2><p>首先，要使用网桥完成一个好的设计，就需要考虑下面两个重要的方面：<br>●必须保证绝对正确地分割冲突域；<br>●创建可使用桥接网络的正确方法，确保网络中的用户将会80%的时间用于本地网段内的传输。</p>
+<p>第2层交换机和网桥都不能分割广播域，这一问题限制了网络的规模，而且显示了网络的增长潜力，同时它还会导致网络整体性能的下降。</p>
+<p>##桥接和局域网交换的比较<br>第2层交换机只是拥有更多端口的网桥。两者的重要不同如下：<br>■网桥是基于软件的，而交换机则是基于硬件的，交换机使用 ASIC 芯片来帮助它们完成过滤<br>决策;<br>■交换机可以被视为多端口网桥:<br>■每个网桥只有一个生成树实例，而交换机则可以有多个(我们稍后就会讨论到生成树);<br>■大多数的交换机要比网桥的端口数量多很多;<br>■网桥和交换机都将泛洪第 层广播;<br>■通过检查每个接收到的数据帧的源地址，网桥和交换机完成了对 MAC 地址的学习;<br>■口网桥和交换机都基于第 层地址完成转发决策。</p>
+<p>##第2层上的3种交换功能<br>地址学习，过滤/转发决策，环路避免<br>★地址学习 层的交换机和网桥能够记住在某个接口上所收到的每个帧的源硬件地址，而<br>且它们还会将这个信息输入到被称为转发/过滤表的 MAC 数据库中。<br>★转发/过滤决策 当在某个接口上收到一个数据帧时，交换机就会在 MAC 数据库中查看其目<br>的方的硬件地址，并找到其输出接口。此数据帧只会被转发到相应的目的端口。<br>★环路避免 如果为了保证冗余而在交换机之间创建了多重连接，网络就可能产生环路。在提<br>供冗余的同时，生成树协议( STP) 还可以防止网络环路的产生</p>
+<h1 id="生成树协议（STP）"><a href="#生成树协议（STP）" class="headerlink" title="生成树协议（STP）"></a>生成树协议（STP）</h1><h2 id="STP（Spanning-Tree-Protocol）（生成树协议）-802-1d"><a href="#STP（Spanning-Tree-Protocol）（生成树协议）-802-1d" class="headerlink" title="STP（Spanning Tree Protocol）（生成树协议） 802.1d"></a>STP（Spanning Tree Protocol）（生成树协议） 802.1d</h2><p>逻辑上断开环路，防止广播风暴的产生。<br>当线路出现故障，断开的接口被激活，恢复通信，起备份线路的作用。</p>
+<p>STP 的主要任务是防止第2层网络(网桥或交换机)出现网络环路。它警惕地监视着网络以找出所有可用链路，并关闭任何冗余链路以确保不会出现环路。 STP 首先使用生成树算法( STA) 创建一个拓扑数据库，然后找出并关闭冗余链路。运行 STP 后，数据帧就只能在 STP 选定的最优链路上进行转发。<br> <strong>STP 是一种 2 层协议，用于维护一个无环路的交换式网络。</strong></p>
+<h2 id="STP的算法"><a href="#STP的算法" class="headerlink" title="STP的算法"></a>STP的算法</h2><h3 id="STP将一个环形网络生成无环拓朴的步骤："><a href="#STP将一个环形网络生成无环拓朴的步骤：" class="headerlink" title="STP将一个环形网络生成无环拓朴的步骤："></a>STP将一个环形网络生成无环拓朴的步骤：</h3><pre><code>第一步：选择根网桥（Root Bridge）
+第二步：选择根端口（Root Ports）
+第三步：选择指端口（Designated Ports）</code></pre><p> 第一步：选择根网桥（Root Bridge）<br>（1）如何选择根网桥？<br>根据网桥ID（BID）选择根网桥，谁的优先级小，谁就是根桥。如果优先级相同，谁的MAC地址小谁就是根桥。<br>（2）什么是网桥ID（BID）？  <strong>优先级+MAC地址</strong><br>每个网络只能有一个根桥，根桥具有最低的桥ID，根桥上的所有端口都是指派端口，选择根网桥的目的是为了给将生成的树形结构确定一个树根。</p>
+<p>第二步：选择根端口（Root Ports）<br>（1）如何选择根端口？<br>在非根网桥上选择一个到根网桥最近的端口作为根端口 选择根端口的依据是：<br>根路径成本（cost值）【从端口出发到根桥】最低<br>直连网桥的网桥ID最小<br>直连网桥的端口ID最小<br>（2）什么是cost值？<br>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p>
+<p><strong>根路径成本表</strong><br><img src="https://i.loli.net/2019/08/16/vkO9hw4cmHEYUVN.png" alt="image.png"><br>（3）什么是端口ID：端口优先级+端口编号  缺省值128</p>
+<p>第三步：选择指定端口<br>选择指定端口的依据是：<br>在每个网段上，选择1个指定端口，根桥上的端口全是指定端口。<br>非根桥上的指定端口：<br>根路径成本【从非根桥到根桥】最低<br>端口所在的网桥的ID值较小<br>直连网桥的端口ID值较小</p>
+<h3 id="BPDU-桥协议数据单元"><a href="#BPDU-桥协议数据单元" class="headerlink" title="BPDU 桥协议数据单元"></a>BPDU 桥协议数据单元</h3><p>指网络中所有交换机都需要相互交换的、用于根交换机选举的信息，这些信息也会用于网络的后续配置。每台交换机都会对桥协议数据单元 (BPDU) 内的参数进行比较，并将从邻居收到的 BPDU 放入自己的 BPDU 中，然后再将其传送给其他邻居。<br><strong>BPDU（Bridge Protocol Data Unit）使用组播发送BPDU，组播地址为：01-80-c2-00-00-00。</strong><br>BPDU分为2种类型：<br>配置BPDU － 用于生成树计算<br>拓朴变更通告（TCN）BPDU － 用于通告网络拓朴的变化<br><img src="https://i.loli.net/2019/08/16/4PFnSGCzqmY7jOb.png" alt="image.png"></p>
+<h3 id="生成树端口的状态"><a href="#生成树端口的状态" class="headerlink" title="生成树端口的状态"></a>生成树端口的状态</h3><ul>
+<li>阻塞 被阻塞的端口不能对数据帧进行转发;它只监听 BPDU 帧。设置阻塞状态是为了阻止使用有环路的路径。当交换机通电时，所有端口在默认情况下都处于阻塞状态。</li>
+<li>侦听 端口侦听 BPDU ，以确保在开始传送数据帧之前，网络上没有环路出现。处于侦听状态的端口在没有形成 MAC 地址表时就准备转发数据帧。</li>
+<li>学习 交换机端口侦昕 BPDU ，并学习此交换式网络中的所有路径。处在学习状态的端口开始形成 MAC 地址表，但仍不能转发数据帧。转发延迟是指将端口从侦昕状态转换到学习模式（或从学习到转发模式)所需花费的时间，默认设置为 15 秒，可以用命令 show spanning-tree 查看。</li>
+<li>转发 端口发送并接收所有桥接端口上的数据帧。如果在学习状态结束时，端口仍然是指定端口;或根端口，那么它就会进入转发状态。</li>
+<li>禁用(在技术上它不是一个可转换状态) 处于禁用状态的端口(管理上)不能参与帧的转发或组成 STP。禁用状态下的端口实质上是不工作的。<br><img src="https://i.loli.net/2019/08/16/ImQZfDnz98liASe.png" alt="image.png"></li>
+</ul>
+<p><strong>只有在学习和转发模式中，交换机才能形成 MAC 地址表。</strong><br>阻塞端口是一种预防网络环路的策略。一旦交换机为它的根端口和任一指定端口确定了到达根桥的最佳路径，那么，所有其他的冗余端口都将处于阻塞状态。被阻塞的端口仍可以接收BPDU ，只是它们不能再发送出任何帧。</p>
+<h3 id="会聚"><a href="#会聚" class="headerlink" title="会聚"></a>会聚</h3><h2 id="当网桥或交换机上的所有端口都转换到了转发或阻塞模式时，就会形成会聚。在会聚完成之前，无法转发数据。"><a href="#当网桥或交换机上的所有端口都转换到了转发或阻塞模式时，就会形成会聚。在会聚完成之前，无法转发数据。" class="headerlink" title="当网桥或交换机上的所有端口都转换到了转发或阻塞模式时，就会形成会聚。在会聚完成之前，无法转发数据。"></a><strong>当网桥或交换机上的所有端口都转换到了转发或阻塞模式时，就会形成会聚。在会聚完成之前，无法转发数据。</strong></h2><h3 id="生成树的端口快速"><a href="#生成树的端口快速" class="headerlink" title="生成树的端口快速"></a>生成树的端口快速</h3><p>如果交换机上连接服务器或其他设备，并且你可以完全确定这些链路不会因为禁用 STP 而产生交换环路，那么，可以在这些端口上使用所谓的端口快速 (PortFast)。使用了端口快速就表明，当 STP会聚时，这一端口无需花费 50 秒即可进入转发模式。</p>
+<h2 id="Switch-config-if-spanning-tree-portfast"><a href="#Switch-config-if-spanning-tree-portfast" class="headerlink" title="Switch(config-if)#spanning-tree portfast"></a>Switch(config-if)#spanning-tree portfast</h2><h3 id="生成树的-UplinkFast"><a href="#生成树的-UplinkFast" class="headerlink" title="生成树的 UplinkFast"></a>生成树的 UplinkFast</h3><h2 id="UplinkFast-是思科产品特有的特性，当链路失效时-UplinkFast-可用来缩短-STP-的会聚时间。注意，与portfast-命令一样，在使用这个命令时，同样需要特别地小心谨慎-UplinkFast-特性专门运行于交换式环境中，当交换机至少有一个可替换-备份的根端口-一个处于阻塞状态的端口-时才会需要使用它。"><a href="#UplinkFast-是思科产品特有的特性，当链路失效时-UplinkFast-可用来缩短-STP-的会聚时间。注意，与portfast-命令一样，在使用这个命令时，同样需要特别地小心谨慎-UplinkFast-特性专门运行于交换式环境中，当交换机至少有一个可替换-备份的根端口-一个处于阻塞状态的端口-时才会需要使用它。" class="headerlink" title="UplinkFast 是思科产品特有的特性，当链路失效时 UplinkFast 可用来缩短 STP 的会聚时间。注意，与portfast 命令一样，在使用这个命令时，同样需要特别地小心谨慎! UplinkFast 特性专门运行于交换式环境中，当交换机至少有一个可替换/备份的根端口(一个处于阻塞状态的端口)时才会需要使用它。"></a>UplinkFast 是思科产品特有的特性，当链路失效时 UplinkFast 可用来缩短 STP 的会聚时间。注意，与portfast 命令一样，在使用这个命令时，同样需要特别地小心谨慎! UplinkFast 特性专门运行于交换式环境中，当交换机至少有一个可替换/备份的根端口(一个处于阻塞状态的端口)时才会需要使用它。</h2><h3 id="快速生成树协议-（RSTP-802-1w"><a href="#快速生成树协议-（RSTP-802-1w" class="headerlink" title="快速生成树协议 （RSTP) 802.1w"></a>快速生成树协议 （RSTP) 802.1w</h3><p>RSTP 并不是一个”全新”的协议，但比起 802.1d 标准它又进化了许多，当拓扑发生改变时它具有更快的会聚时间。在创建 802.1w 时必须保证向后的兼容性。<br>802.1w 重新定义了5 种端口状态:<br>    禁止=丢弃<br>    阻塞=丢弃<br>    侦听=丢弃<br>    学习=学习<br>    转发=转发</p>
+<hr>
+<h3 id="端口聚合"><a href="#端口聚合" class="headerlink" title="端口聚合"></a>端口聚合</h3><ul>
+<li>链路聚合又称为端口聚合，端口捆绑，英文名porttrunking。是一种聚合多个物理接口 ( that ) 创建一个逻辑接口。你可以捆扎( bundle ) 八个单独的活动链接到一个信道端口，以提供更高的带宽和冗余。端口通道也负载平衡这些物理接口上的通信量。只要端口通道中的至少一个物理接口可操作，端口通道就可以保持运行。</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/16/Eigrp学习/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Eigrp学习
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/08/xss进阶/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">XSS进阶</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/python函数/">PYTHON·函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/PYTHON前言/">PYTHON前言</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/26/HSRP/">HSRP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/IP地址和VLSM/">IP地址和VLSM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>

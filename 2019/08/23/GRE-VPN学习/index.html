@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>GRE学习 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta name="keywords" content="GRE-VPN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GRE学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/GRE-VPN学习/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/Dr1sGTBzCX3ynZv.png">
+<meta property="og:updated_time" content="2019-09-02T12:47:19.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GRE学习">
+<meta name="twitter:description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-GRE-VPN学习" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      GRE学习
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/23/GRE-VPN学习/" class="article-date">
+  <time datetime="2019-08-23T02:22:20.000Z" itemprop="datePublished">2019-08-23</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。</p>
+<a id="more"></a>
+<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>IGP：rip，eigrp，ospf<br>BGP：EGP（IBGP和EBGP）</p>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>GRE在两个远程网络之间模拟出直连链路，从而使网络间达到直连的效果。<br>GRE完成3次封装：<br>    * 就是在GRE隧道中传输的数据包都有3个包头，因为我们只谈IP协议，所以GRE中的IP数据包是一层套一层，总共有3个IP地址。<br>    * GRE在实现隧道时，需要创建虚拟直连链路，GRE实现的虚拟直连链路可以认为是隧道，隧道是模拟链路，所以隧道两端也有IP地址，但隧道需要在公网中找到起点和终点，所以隧道的源和终点分别都以公网IP地址结尾。总的来说就是，隧道本身两端有自己的ip地址，设置隧道时需要知道源地址和目标地址。</p>
+<p>隧道传递数据包的过程分3步：<br>  GRE在实现隧道时，需要创建虚拟直连链路，GRE实现的虚拟直连链路可以认为是隧道，隧道是模拟链路，所以隧道两端也有IP地址，但隧道需要在公网中找到起点和终点，所以隧道的源和终点分别都以公网IP地址结尾，<br><img src="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png" alt="image.png"></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>GRE VPN配置实例<br>   示例1：<br>某个企业的2个站点，都接入到Internet，现在希望2个站点能够互通<br>GRE（Generic Routing Encapsulation)<br>    GRE能够将一种三层协议的报文封装到另一种三层协议的报文中进行传输<br>    GRE是一种隧道能力极强的技术，但它的安全性较差，没有对数据做加密（IPSec则可以加密）原理是将L3层部分当成数据部分，在外层加上一层ip头，数据到达PE1的隧道源端时，查找的目地IP（地址是PE2的隧道目地IP地址），然后就会走tunel 0发送给PE2，PE2收到后拆掉tunel的头部后查看里面的L3层ip头，发现目的地址是自己连接的客户网络site2，就会将数据包交给客户网络site2，从而实现site之间的通信。<br><img src="https://i.loli.net/2019/09/02/Dr1sGTBzCX3ynZv.png" alt="image.png"><br>R1为PE1，R2为P，R3为PE2，两端PC分别模拟客户的两个site，要求进行GREvpn通信<br> 隧道源端配置：<br>PE1(config)#intface f0/0<br>PE1(config-if)#ip add 192.168.1.1 255.255.255.0<br>PE1(config)#intface f0/1<br>PE1(config-if)#ip add 12.1.1.1 255.255.255.0</p>
+<p>router eigrp 1              ISP内部IGP使用eigrp<br>network 12.0.0.0<br>no auto-summary</p>
+<p>PE1(config)#int tunnel 0<br>PE1(config-if)#tunnel source 12.1.1.1<br>PE1(config-if)#tunnel destination 23.1.1.2<br>PE1(config-if)#ip add 10.0.0.1 255.255.255.0     用于tunnel隧道接口之间通信，必须在一个网段</p>
+<p>PE1(config)#ip route 172.16.1.0 255.255.255.0 tunnel 0   告诉去往172.16.1.0/24的vpn数据包下一跳出接口走隧道</p>
+<p>隧道目地端配置：<br>PE2(config)#intface f0/1<br>PE2(config-if)#ip add 172.16.1.1 255.255.255.0</p>
+<p>PE2(config)#int tunnel 0<br>PE2(config-if)#tunnel source 23.1.1.2<br>PE2(config-if)#tunnel destination 12.1.1.1<br>PE2(config-if)#ip add 10.0.0.2 255.255.255.0</p>
+<p>PE2(config)#ip route 192.168.1.0 255.255.255.0 tunnel 0</p>
+<p>R1#show ip route<br>Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP<br>       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area<br>       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2<br>       E1 - OSPF external type 1, E2 - OSPF external type 2<br>       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2<br>       ia - IS-IS inter area, * - candidate default, U - per-user static route<br>       o - ODR, P - periodic downloaded static route<br>Gateway of last resort is not set<br>     23.0.0.0/24 is subnetted, 1 subnets<br>D       23.1.1.0 [90/307200] via 12.1.1.2, 01:40:37, FastEthernet0/1<br>     172.16.0.0/24 is subnetted, 1 subnets<br>S       172.16.1.0 is directly connected, Tunnel0<br>     10.0.0.0/24 is subnetted, 1 subnets<br>C       10.0.0.0 is directly connected, Tunnel0<br>     12.0.0.0/24 is subnetted, 1 subnets<br>C       12.1.1.0 is directly connected, FastEthernet0/1<br>C    192.168.1.0/24 is directly connected, FastEthernet0/0</p>
+<p>PC1&gt; show ip<br>NAME        : PC1[1]<br>IP/MASK     : 192.168.1.10/24<br>GATEWAY     : 192.168.1.1<br>DNS         :<br>MAC         : 00:50:79:66:68:00<br>LPORT       : 10000<br>RHOST:PORT  : 172.17.17.243:10001<br>MTU:        : 1500<br>PC1&gt; ping 172.16.1.10<br>172.16.1.10 icmp_seq=1 timeout<br>172.16.1.10 icmp_seq=2 timeout<br>84 bytes from 172.16.1.10 icmp_seq=3 ttl=62 time=49.003 ms<br>84 bytes from 172.16.1.10 icmp_seq=4 ttl=62 time=49.003 ms<br>84 bytes from 172.16.1.10 icmp_seq=5 ttl=62 time=49.003 ms</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/25/PT基础/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            PT基础命令
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/22/防火墙/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">防火墙</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/python函数/">PYTHON·函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/PYTHON前言/">PYTHON前言</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/26/HSRP/">HSRP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/IP地址和VLSM/">IP地址和VLSM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>

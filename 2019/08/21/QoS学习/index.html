@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>QoS学习 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="QoS（服务质量）是网络的一种安全机制, 是一种用于解决网络延迟和阻塞等问题的技术。">
+<meta name="keywords" content="网络，QoS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QoS学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/QoS学习/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="QoS（服务质量）是网络的一种安全机制, 是一种用于解决网络延迟和阻塞等问题的技术。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-22T02:47:34.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QoS学习">
+<meta name="twitter:description" content="QoS（服务质量）是网络的一种安全机制, 是一种用于解决网络延迟和阻塞等问题的技术。">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-QoS学习" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      QoS学习
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/21/QoS学习/" class="article-date">
+  <time datetime="2019-08-21T10:45:15.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>QoS（服务质量）是网络的一种安全机制, 是一种用于解决网络延迟和阻塞等问题的技术。</p>
+<a id="more"></a>
+<h1 id="QoS（服务质量）技术"><a href="#QoS（服务质量）技术" class="headerlink" title="QoS（服务质量）技术"></a>QoS（服务质量）技术</h1><p>QoS（服务质量）是网络的一种安全机制, 是一种<font color="red">用于解决网络延迟和阻塞</font>等问题的技术，包括传输的带宽、传送的时延、数据的丢包率等。在网络中可以通过保证传输的带宽、降低传送的时延、降低数据的丢包率以及时延抖动等措施来提高服务质量。</p>
+<ul>
+<li>正常情况下，假如网络只用于特定的无时间限制的应用系统，比如Web应用、FTP应用等，那么它不需要QoS。当<font color="red">网络过载或拥塞</font>时，QoS 可以确保重要业务量不受延迟或丢弃，同时可以保证网络的高效运行。</li>
+</ul>
+<h1 id="QoS服务模型"><a href="#QoS服务模型" class="headerlink" title="QoS服务模型"></a>QoS服务模型</h1><p>① <font color="#00CDCD" size="5">Best-Effort</font>服务模型：网络尽最大的可能性来发送报文，对时延、可靠性等性能不提供任何保证。<br>② <font color="#00CDCD" size="5">Int-Serv</font>服务模型：明确区分并保证每一个业务流的服务质量，为网络提供最细粒度化的服务质量区分。<br>③ <font color="#00CDCD" size="5">Diff-Serv</font>服务模型：多服务模型，可以满足不同的QoS需求。与Int-Serv不同，它不需要通知网络为每个业务预留资源。Diff-Serv根据每个报文指定的QoS来提供特定的服务。<br>    报文的QoS指定方法有多种，如IP包优先级位、报文源地址和目的地址等，网络通过这些信息来进行报文的分类、流量整形、流量监管和排队。Diff-Serv主要用于为一些重要的应用提供端到端的QoS。</p>
+<h1 id="QoS的队列算法"><a href="#QoS的队列算法" class="headerlink" title="QoS的队列算法"></a>QoS的队列算法</h1><p>① FIFO：先进先出队列。FIFO不对报文进行分类，按报文到达接口的先后顺序进队，以进队的先后顺序出队。<br>② CQ：自定义排队。当在某个端口上配置CQ时，系统将会为这个端口维护17个输出队列，编号为0的队列是系统队列，用户可以指定队列1～16。系统在1～16队列之间循环，每个循环都从当前队列中取出预配置的字节总数，并在移动到下一队列前将这些数据包发送出去。CQ的缺点：CQ是静态配置的，不能自动适应网络情况的不断变化。<br>③ PQ：优先权排队。可以配置高（High）、中（Middle）、普通（Normal）、低（Low）四种通信优先级，优先权级别高的通信总会比优先权级别低的通信提前得到服务。<br>④ WFQ：加权公平排队。WFQ是一个自动的时序安排方法，对网络的所有通信提供了公平的带宽分配方案。WFQ为数据量少的通信提供比数据量大的通信更高的优先权，同时为并发的文件传输提供链路容量的平衡使用。<br>⑤ CBWFQ：基本类型的加权公平排队。CBWFQ能根据用户定义识别出某种类流，并为该条流分配一定的权重</p>
+<h1 id="QoS的设置"><a href="#QoS的设置" class="headerlink" title="QoS的设置"></a>QoS的设置</h1><p>QoS配置的4个基本步骤：<br>① 设置ACL匹配应用流量。<br>② 设置class-map匹配相应ACL或者相应端口等。<br>③ 设置policy-map匹配class-map，然后定义规则动作。<br>④ 将policy-map绑定到相应的接口上。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/21/PPP认证/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            PPP认证
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/20/三种策略路由/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">三种策略路由</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/python函数/">PYTHON·函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/PYTHON前言/">PYTHON前言</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/26/HSRP/">HSRP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/IP地址和VLSM/">IP地址和VLSM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>防火墙 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta name="keywords" content="防火墙，安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="防火墙">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/防火墙/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/h4zRCVGEfXUud1j.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/1xnyTPsSLiNHacm.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/MUs2GxENehdzgrp.png">
+<meta property="og:updated_time" content="2019-09-02T13:09:24.555Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="防火墙">
+<meta name="twitter:description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-防火墙" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      防火墙
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/22/防火墙/" class="article-date">
+  <time datetime="2019-08-22T12:53:04.000Z" itemprop="datePublished">2019-08-22</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置</p>
+<a id="more"></a>
+<h1 id="防火墙的作用与功能"><a href="#防火墙的作用与功能" class="headerlink" title="防火墙的作用与功能"></a>防火墙的作用与功能</h1><ul>
+<li><p>控制<br>在网络连接点上建立一个安全控制点，对进出数据进行限制</p>
+</li>
+<li><p>隔离<br>将需要保护的网络与不可信任网络进行隔离，隐藏信息并进行安全防护</p>
+</li>
+<li><p>记录<br>对进出数据进行检查，记录相关信息</p>
+<h1 id="防火墙的分类"><a href="#防火墙的分类" class="headerlink" title="防火墙的分类"></a>防火墙的分类</h1></li>
+<li><p>按防火墙形态<br>硬件防火墙<br>软件防火墙</p>
+</li>
+<li><p>按技术实现<br>包过滤（透明模式）<br>代理</p>
+</li>
+<li><p>按体系结构分<br>双宿/多宿主机防火墙<br>屏蔽主机防火墙<br>屏蔽子网防火墙</p>
+</li>
+<li><p>其他分类方法</p>
+<h1 id="防火墙的实现技术"><a href="#防火墙的实现技术" class="headerlink" title="防火墙的实现技术"></a>防火墙的实现技术</h1></li>
+<li><p>包过滤技术<br>实现机制：依据数据包的基本标记来控制数据包<br>网络层地址：IP地址（源地址及目的地址）<br>传输层地址：端口（源端口及目的端口）<br>协议：协议类型</p>
+</li>
+<li><p><em>优点:*</em><br>只对数据包的 IP 地址、 TCP/UDP 协议和端口进行分析，规则简单，处理速度较快<br>易于配置<br>对用户透明，用户访问时不需要提供额外的密码或使用特殊的命令</p>
+</li>
+<li><p><em>缺点：*</em><br>检查和过滤器只在网络层，不能识别应用层协议或维持连接状态<br>安全性薄弱，不能防止IP欺骗等</p>
+</li>
+<li><p>代理网关技术<br>每一个内外网络之间的连接都要通过防火墙的介入和转换，加强了控制</p>
+</li>
+<li><p><em>分类*</em></p>
+<h2 id="电路级代理"><a href="#电路级代理" class="headerlink" title="电路级代理"></a>电路级代理</h2><p>建立回路，对数据包进行转发</p>
+</li>
+<li><p><em>优点*</em><br>能提供NAT，为内部地址管理提供灵活性，隐藏内部网络等<br>适用面广</p>
+</li>
+<li><p><em>缺点*</em><br>仅简单的在两个连接间转发数据，不能识别数据包的内容</p>
+</li>
+</ul>
+<h2 id="应用代理"><a href="#应用代理" class="headerlink" title="应用代理"></a>应用代理</h2><p>工作在应用层<br>使用代理技术，对应用层数据包进行检查<br>对应用或内容进行过滤，例如：禁止FTP的 “put”命令<br><strong>优点</strong><br>可以检查应用层内容，根据内容进行审核和过滤<br>提供良好的安全性<br><strong>缺点</strong><br>支持的应用数量有限<br>性能表现欠佳</p>
+<ul>
+<li>状态检测技术<h2 id="状态检测技术的特点"><a href="#状态检测技术的特点" class="headerlink" title="状态检测技术的特点"></a>状态检测技术的特点</h2></li>
+</ul>
+<p>1.安全性高，可根据通信和应用程序状态确定是否允许包的通行<br>2.性能高，在数据包进入防火墙时就进行识别和判断<br>3.适应性好<br>4.对用户、应用程序透明</p>
+<ul>
+<li>自适应代理技术</li>
+<li><em>特点:*</em></li>
+</ul>
+<p>1.根据用户定义安全规则动态“适应”传输网络数据<br>2.代理服务可以从应用层转发，也可以从网络层转发<br>　　　　　　高安全要求：则在应用层进行检查<br>　　　　　　明确会话安全细节：则在链路层数据包转发<br>3.兼有高安全性和高效率</p>
+<h1 id="防火墙部署方式"><a href="#防火墙部署方式" class="headerlink" title="防火墙部署方式"></a>防火墙部署方式</h1><h2 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h2><p><img src="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png" alt="路由模式.png"></p>
+<h2 id="透明模式"><a href="#透明模式" class="headerlink" title="透明模式"></a>透明模式</h2><p><img src="https://i.loli.net/2019/09/02/h4zRCVGEfXUud1j.png" alt="透明模式.png"></p>
+<h2 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h2><p><img src="https://i.loli.net/2019/09/02/1xnyTPsSLiNHacm.png" alt="混合模式.png"></p>
+<h1 id="防火墙的典型部署"><a href="#防火墙的典型部署" class="headerlink" title="防火墙的典型部署"></a>防火墙的典型部署</h1><p><img src="https://i.loli.net/2019/09/02/MUs2GxENehdzgrp.png" alt="部署.png"></p>
+<h1 id="防护墙的策略设置"><a href="#防护墙的策略设置" class="headerlink" title="防护墙的策略设置"></a>防护墙的策略设置</h1><ul>
+<li><p>没有明确允许的就是禁止<br>　　　　　　先阻止所有数据包<br>　　　　　　需要的给予开放</p>
+</li>
+<li><p>没有明确禁止的就是允许<br>　　　　　　对明确禁止的设置策略</p>
+<h1 id="防火墙的不足和局限性"><a href="#防火墙的不足和局限性" class="headerlink" title="防火墙的不足和局限性"></a>防火墙的不足和局限性</h1></li>
+</ul>
+<p>1.难于管理和配置，易造成安全漏洞<br>2.防外不防内，不能防范恶意的知情者<br>3.只实现了粗粒度的访问控制<br>4.很难为用户在防火墙内外提供一致的安全策略<br>5.不能防范病毒</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/23/GRE-VPN学习/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            GRE学习
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/21/NAT学习/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">NAT学习</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/python函数/">PYTHON·函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/PYTHON前言/">PYTHON前言</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/26/HSRP/">HSRP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/IP地址和VLSM/">IP地址和VLSM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>

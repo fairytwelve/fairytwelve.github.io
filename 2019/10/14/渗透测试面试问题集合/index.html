@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>渗透测试面试问题合集 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="主要内容：渗透面试问题合集">
+<meta name="keywords" content="渗透">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透测试面试问题合集">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/渗透测试面试问题集合/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="主要内容：渗透面试问题合集">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-15T06:10:42.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="渗透测试面试问题合集">
+<meta name="twitter:description" content="主要内容：渗透面试问题合集">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-渗透测试面试问题集合" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      渗透测试面试问题合集
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/14/渗透测试面试问题集合/" class="article-date">
+  <time datetime="2019-10-14T01:43:07.000Z" itemprop="datePublished">2019-10-14</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>主要内容：渗透面试问题合集</p>
+<a id="more"></a>
+
+
+
+<h4 id="1-拿到一个待检测的站，你觉得应该先做什么？"><a href="#1-拿到一个待检测的站，你觉得应该先做什么？" class="headerlink" title="1.拿到一个待检测的站，你觉得应该先做什么？"></a>1.拿到一个待检测的站，你觉得应该先做什么？</h4><p>收集信息：whois、网站源 IP、旁站、C 段网站、服务器系统版本、容器版本、<br>程序版本、数据库类型、二级域名、防火墙、维护者信息另说…</p>
+<h4 id="2-判断出网站的-CMS-对渗透有什么意义？"><a href="#2-判断出网站的-CMS-对渗透有什么意义？" class="headerlink" title="2.判断出网站的 CMS 对渗透有什么意义？"></a>2.判断出网站的 CMS 对渗透有什么意义？</h4><p>查找网上已曝光的程序漏洞,如果开源，还能下载相对应的源码进行代码审计。</p>
+<h4 id="3-一个成熟并且相对安全的-CMS，渗透时扫目录的意义？"><a href="#3-一个成熟并且相对安全的-CMS，渗透时扫目录的意义？" class="headerlink" title="3.一个成熟并且相对安全的 CMS，渗透时扫目录的意义？"></a>3.一个成熟并且相对安全的 CMS，渗透时扫目录的意义？</h4><p>(1)敏感文件、二级目录扫描<br>(2)站长的误操作比如：网站备份的压缩文件、说明.txt、二级目录可能存放着其<br>他站点</p>
+<h4 id="4-常见的网站服务器容器"><a href="#4-常见的网站服务器容器" class="headerlink" title="4.常见的网站服务器容器?"></a>4.常见的网站服务器容器?</h4><p>IIS、Apache、nginx、Tomcat,weblogic、jboss</p>
+<h4 id="5-whatweb可以用来做什么，有哪些参数及用法？"><a href="#5-whatweb可以用来做什么，有哪些参数及用法？" class="headerlink" title="5.whatweb可以用来做什么，有哪些参数及用法？"></a>5.whatweb可以用来做什么，有哪些参数及用法？</h4><p>whatweb能够识别各种关于网站的详细信息包括：CMS类型、博客平台、中间件、web框架模块、网站服务器、脚本类型、JavaScript库、IP、cookie等。<br>对单个目标进行简单探测whatweb+目标<br>通过-V参数可以将探测的的结果详细的罗列出来。<br>使用-l参数可以列出插件的列表，包括插件的名称以及插件的描述。<br>通过-c参数指定cookie的值。<br>    -i  指定要扫描的文件<br>    -v 详细显示扫描的结果<br>    -a  指定运行级别</p>
+<h4 id="6-大马和小马的区别？"><a href="#6-大马和小马的区别？" class="headerlink" title="6.大马和小马的区别？"></a>6.大马和小马的区别？</h4><p>·大马体积比较大一般50K以上。功能也多，一般都包括提权命令，磁盘管理，数据库连接借口，执行命令甚至有些以具备自带提权功能和压缩，解压缩网站程序的功能。这种马隐蔽性不好<br>·小马体积小，容易隐藏，隐蔽性强</p>
+<h4 id="7-给你一个网站你是如何来渗透测试的"><a href="#7-给你一个网站你是如何来渗透测试的" class="headerlink" title="7.给你一个网站你是如何来渗透测试的?"></a>7.给你一个网站你是如何来渗透测试的?</h4><p>1）信息收集<br>    a. 服务器的相关信息（真实 ip，系统类型，版本，开放端口，WAF 等）<br>    b. 网站指纹识别（包括，cms，cdn，证书等），dns 记录<br>    c. whois 信息，姓名，备案，邮箱，电话反查（邮箱丢社工库，社工准备等）<br>    d. 子域名收集，旁站查询(有授权可渗透)，C 段等<br>    e. google hacking 针对化搜索，pdf 文件，中间件版本，弱口令扫描等<br>    f. 扫描网站目录结构，爆后台，网站 banner，测试文件，备份等敏感文件泄漏<br>等<br>    i. 传输协议，通用漏洞，exp，github 源码等<br>2）漏洞挖掘<br>    1&gt; 浏览网站，看看网站规模，功能，特点等<br>    2&gt; 端口，弱口令，目录等扫描<br>    3&gt; XSS，SQL 注入，命令注入，CSRF，cookie 安全检测，敏感信息，通信数据传输，暴力破解，任意文件上传，越权访问，未授权访问，目录遍历，文件包含，重放攻击（短信轰炸），服务器漏洞检测，最后使用漏扫工具等<br>3）漏洞利用 | 权限提升<br>    a) mysql 提权，serv-u 提权，linux 内核版本提权等<br>4）清除测试数据 | 输出报告<br>    i 日志、测试数据的清理<br>    ii 总结，输出渗透测试报告，附修复方案<br>5) 复测<br>    验证并发现是否有新漏洞，输出报告，归档</p>
+<p>———-2019.10.15更新—————</p>
+<h4 id="1-为何一个-mysql-数据库的站，只有一个-80-端口开放？"><a href="#1-为何一个-mysql-数据库的站，只有一个-80-端口开放？" class="headerlink" title="1.为何一个 mysql 数据库的站，只有一个 80 端口开放？"></a>1.为何一个 mysql 数据库的站，只有一个 80 端口开放？</h4><p>(1)更改了端口，没有扫描出来<br>(2) 站库分离<br>(3) 3306 端口不对外开放</p>
+<h4 id="2-简述-Linux-系统安全加固需要做哪些方面？"><a href="#2-简述-Linux-系统安全加固需要做哪些方面？" class="headerlink" title="2.简述 Linux 系统安全加固需要做哪些方面？"></a>2.简述 Linux 系统安全加固需要做哪些方面？</h4><p>1.密码安全策略<br>2.关闭不必要的端口和服务<br>3.文件权限的设置等</p>
+<h4 id="3-Linux-的-Selinux-是什么？如何设置-Selinux？"><a href="#3-Linux-的-Selinux-是什么？如何设置-Selinux？" class="headerlink" title="3.Linux 的 Selinux 是什么？如何设置 Selinux？"></a>3.Linux 的 Selinux 是什么？如何设置 Selinux？</h4><p>SELinux 是一种安全子系统，它能控制程序只能访问特定文件<br>使用 setup 工具进入图形化关闭搜索或者修改/etc/sysconfig/selinux 文件<br>SELINUX=disabled<br>防火墙打开使用 service iptables start 或则/etc/init.d/iptables start</p>
+<h4 id="4-syslog-里面都有哪些日志？安装软件的日志去哪找？"><a href="#4-syslog-里面都有哪些日志？安装软件的日志去哪找？" class="headerlink" title="4.syslog 里面都有哪些日志？安装软件的日志去哪找？"></a>4.syslog 里面都有哪些日志？安装软件的日志去哪找？</h4><p>syslog是Linux系统默认的日志守护进程。默认的syslog配置文件是/etc/sysctl.conf文件</p>
+<p>通常，syslog 接受来自系统的各种功能的信息，每个信息都包括重要级。/etc/syslog.conf 文件通知 syslogd 如何根据设备和信息重要级别来报告信息。</p>
+<p>那么，linux记录的日志有哪些呢？</p>
+<p>​    /var/log/lastlog ：记录最后一次用户成功登陆的时间、登陆IP等信息</p>
+<p>​    /var/log/messages ：记录Linux操作系统常见的系统和服务错误信息</p>
+<p>​    /var/log/secure ：Linux系统安全日志，记录用户和工作组变坏情况、用户登陆认证情况</p>
+<p>​    /var/log/btmp ：记录Linux登陆失败的用户、时间以及远程IP地址</p>
+<p>​    /var/log/cron ：记录crond计划任务服务执行情况</p>
+<h4 id="5-如何查询-ssh-的登录日志？"><a href="#5-如何查询-ssh-的登录日志？" class="headerlink" title="5.如何查询 ssh 的登录日志？"></a>5.如何查询 ssh 的登录日志？</h4><p>cd /var/log<br>less secure </p>
+<h4 id="6-mysql-表权限里面，除了增删改查，文件读写，还有哪些权限？"><a href="#6-mysql-表权限里面，除了增删改查，文件读写，还有哪些权限？" class="headerlink" title="6.mysql 表权限里面，除了增删改查，文件读写，还有哪些权限？"></a>6.mysql 表权限里面，除了增删改查，文件读写，还有哪些权限？</h4><p>排序，查询，索引等</p>
+<h4 id="7-mysql-安全要如何做？"><a href="#7-mysql-安全要如何做？" class="headerlink" title="7.mysql 安全要如何做？"></a>7.mysql 安全要如何做？</h4><p>Mysql 账户权限安全<br>Mysql 数据的网络安全配置<br>密码策略安全<br>Mysql 日志<br>Mysql 数据库服务所在主机安全配置<br>部署 SQL 注入检测、防御模块<br>mysqld 安全相关启动选项<br>mysql 备份策略</p>
+<h4 id="8-NMAP绕过IDS和防火墙检测的方法有哪些？"><a href="#8-NMAP绕过IDS和防火墙检测的方法有哪些？" class="headerlink" title="8.NMAP绕过IDS和防火墙检测的方法有哪些？"></a>8.NMAP绕过IDS和防火墙检测的方法有哪些？</h4><p>数据包的变换（Packet Change）  </p>
+<p>时序变换（Timing Change）</p>
+<p>源端口哄骗</p>
+<p>MAC地址哄骗</p>
+<p>使用指定的接口</p>
+<h4 id="9-nmap检测状态有哪几种？"><a href="#9-nmap检测状态有哪几种？" class="headerlink" title="9.nmap检测状态有哪几种？"></a>9.nmap检测状态有哪几种？</h4><p>open , 应用程序在该端口接收 TCP 连接或者 UDP 报文。 </p>
+<p>closed 关闭的端口对于nmap也是可访问的， 它接收nmap探测报文并作出响应。但没有应用程序在其上监听。</p>
+<p>filtered 由于<a href="https://www.baidu.com/s?wd=包过滤&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">包过滤</a>阻止探测报文到达端口，nmap无法确定该端口是否开放。过滤可能来自专业的防火墙设备，路由规则 或者主机上的<a href="https://www.baidu.com/s?wd=软件防火墙&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">软件防火墙</a>。</p>
+<p>unfiltered 未被过滤状态意味着端口可访问，但是nmap无法确定它是开放还是关闭。 只有用于映射防火墙规则集的 ACK 扫描才会把端口分类到这个状态。</p>
+<p>open | filtered 无法确定端口是开放还是被过滤， 开放的端口不响应就是一个例子。</p>
+<p>没有响应也可能意味着报文<a href="https://www.baidu.com/s?wd=过滤器&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">过滤器</a>丢弃了探测报文或者它引发的任何反应。UDP，<a href="https://www.baidu.com/s?wd=IP协议&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">IP协议</a>，　FIN, Null 等扫描会引起</p>
+<h4 id="10-AWVS做一个详细介绍？"><a href="#10-AWVS做一个详细介绍？" class="headerlink" title="10.AWVS做一个详细介绍？"></a>10.AWVS做一个详细介绍？</h4><p>Acunetix Web Vulnerability Scanner（简称AWVS）是一款知名的网络漏洞扫描工具，它通过网络爬虫测试你的网站安全，检测流行安全漏洞</p>
+<p>功能和特点：</p>
+<p>· 自动的客户端脚本分析器，允许对 Ajax 和 Web 2.0 应用程序进行安全性测试。</p>
+<p>· 业内最先进且深入的 SQL 注入和跨站脚本测试</p>
+<p>· 高级渗透测试工具，例如 HTTP Editor 和 HTTP Fuzzer</p>
+<p>· 可视化宏记录器帮助您轻松测试 web 表格和受密码保护的区域</p>
+<p>· 支持含有 CAPTHCA 的页面，单个开始指令和 Two Factor（双因素）验证机制</p>
+<p>· 丰富的报告功能，包括 VISA PCI 依从性报告</p>
+<p>· 高速的多线程扫描器轻松检索成千上万个页面</p>
+<p>· 智能爬行程序检测 web 服务器类型和应用程序语言</p>
+<p>· Acunetix 检索并分析网站，包括 flash 内容、SOAP 和 AJAX</p>
+<p>· 端口扫描 web 服务器并对在服务器上运行的网络服务执行安全检查</p>
+<p>· 可导出网站漏洞文件</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/09/25/python函数/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">PYTHON·函数</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/python函数/">PYTHON·函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/25/PYTHON前言/">PYTHON前言</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/26/HSRP/">HSRP</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/IP地址和VLSM/">IP地址和VLSM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>
