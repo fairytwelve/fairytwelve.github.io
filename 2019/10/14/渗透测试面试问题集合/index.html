@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="fairy">
 <meta property="og:description" content="主要内容：渗透面试问题合集">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-18T05:05:49.756Z">
+<meta property="og:updated_time" content="2019-10-23T01:42:24.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渗透测试面试问题合集">
 <meta name="twitter:description" content="主要内容：渗透面试问题合集">
@@ -209,6 +209,25 @@
 <p>租约端口号：1024-49151</p>
 <h4 id="9-请说出有几类IP地址分类-每类IP地址的范围是多少"><a href="#9-请说出有几类IP地址分类-每类IP地址的范围是多少" class="headerlink" title="9.请说出有几类IP地址分类?每类IP地址的范围是多少?"></a>9.请说出有几类IP地址分类?每类IP地址的范围是多少?</h4><p>五类：A,B,C,D,E<br>A:1.0.0.0-126.255.255.255<br>B:128.0.0.0-191.255.255.255<br>C:192.0.0.0-223.255.255.255<br>D:224.0.0.0-239.255.255.255（作为多播使用）<br>E:240.0.0.0-255.255.255.255（保留）</p>
 <h4 id="10-telnet和ssh的区别是什么"><a href="#10-telnet和ssh的区别是什么" class="headerlink" title="10.telnet和ssh的区别是什么?"></a>10.telnet和ssh的区别是什么?</h4><p>telnet是明文传送, ssh是加密的且支持压缩</p>
+<p>———————————————2019.10.22更新————————————————————-</p>
+<h4 id="1-OWSP-TOP-10是什么？"><a href="#1-OWSP-TOP-10是什么？" class="headerlink" title="1.OWSP TOP 10是什么？"></a>1.OWSP TOP 10是什么？</h4><p>是一个开源的非盈利机构，开源的软件软件开发项目，top10是它提出的排行前10位的web漏洞，分别是：<br>A1-注入<br>A2-跨站脚本（XSS）<br>A3-错误的认证和会话管理<br>A4-不安全的直接对象引用<br>A5-伪造跨站请求（CSRF） – Cross-Site Request Forgery<br>A7-限制远程访问失败<br>A8-未验证的重定向和传递<br>A9-不安全的加密存储<br>A10-不足的传输层保护</p>
+<h4 id="2-http数据包头有哪几部分构成？"><a href="#2-http数据包头有哪几部分构成？" class="headerlink" title="2.http数据包头有哪几部分构成？"></a>2.http数据包头有哪几部分构成？</h4><p><strong>4个部分：请求行、请求头、空行、请求参数</strong><br>请求行：方法、url、协议、版本<br>请求头：关键字、值，如cookies：xxxx<br>空行：把请求行和请求数据隔离开，表示请求头的结束<br>数据行：数据</p>
+<h4 id="3-sql注入有哪几种类型？"><a href="#3-sql注入有哪几种类型？" class="headerlink" title="3.sql注入有哪几种类型？"></a>3.sql注入有哪几种类型？</h4><p>数字型、字符型、搜索型</p>
+<h4 id="4-sql注入漏洞手工探测方法？"><a href="#4-sql注入漏洞手工探测方法？" class="headerlink" title="4.sql注入漏洞手工探测方法？"></a>4.sql注入漏洞手工探测方法？</h4><p>’ and 1=1 and1=2</p>
+<h4 id="5-sql中有哪几种注释方法？"><a href="#5-sql中有哪几种注释方法？" class="headerlink" title="5.sql中有哪几种注释方法？"></a>5.sql中有哪几种注释方法？</h4><p>–+  #  /**/</p>
+<h4 id="6-web应用有哪几部分组成？"><a href="#6-web应用有哪几部分组成？" class="headerlink" title="6.web应用有哪几部分组成？"></a>6.web应用有哪几部分组成？</h4><p>客户端、web应用服务器（中间件）、存储服务器</p>
+<h4 id="7-http和https的区别？"><a href="#7-http和https的区别？" class="headerlink" title="7.http和https的区别？"></a>7.http和https的区别？</h4><p>http是超文本传输协议，明文传输，不安全，所以http加入ssl安全嵌套增加http的安全性，加密传输。</p>
+<h4 id="8-GET和POST的区别？"><a href="#8-GET和POST的区别？" class="headerlink" title="8.GET和POST的区别？"></a>8.GET和POST的区别？</h4><p>get是从服务端获取数据信息，可以通过从url提交。POST是通过request.from提交数据</p>
+<h3 id="9-sql注入的原理？"><a href="#9-sql注入的原理？" class="headerlink" title="9.sql注入的原理？"></a>9.sql注入的原理？</h3><p>数据由用户控制；开发者没有对特殊字符做过滤；将非法字符带入数据库查询。</p>
+<p>———————————————–2019.10.23更新———————————————————-</p>
+<h4 id="1-union查询的原理？"><a href="#1-union查询的原理？" class="headerlink" title="1.union查询的原理？"></a>1.union查询的原理？</h4><p>将多条查询语句的结果合并成一个结果，并且开发者对输入没有做过滤。</p>
+<h4 id="2-布尔盲注常用的函数？"><a href="#2-布尔盲注常用的函数？" class="headerlink" title="2.布尔盲注常用的函数？"></a>2.布尔盲注常用的函数？</h4><p>通过长度判断length():length(database())&gt;=x<br>通过字符判断substr():substr(database(),1,1)=’s’<br>通过ascii码判断ascii():ascii(substr(database(),1,1))=x</p>
+<h4 id="3-布尔盲注的判断方法？"><a href="#3-布尔盲注的判断方法？" class="headerlink" title="3.布尔盲注的判断方法？"></a>3.布尔盲注的判断方法？</h4><p>id=1’<br>id=1 and 1=1<br>id=1 and 1=2</p>
+<h4 id="4-时间盲注的判断方法？"><a href="#4-时间盲注的判断方法？" class="headerlink" title="4.时间盲注的判断方法？"></a>4.时间盲注的判断方法？</h4><p>sleep（）</p>
+<h4 id="5-时间盲注的原理？"><a href="#5-时间盲注的原理？" class="headerlink" title="5.时间盲注的原理？"></a>5.时间盲注的原理？</h4><p>利用sleep（）或benchmark（）等函数让mysql执行时间变长，经常与if（expr1，expr2，expr3）语句结合使用，通过页面的响应时间来判断条件是否正确。if（expr1，expr2，expr3）含义是如果expr1为真返回exper2，为假返回expr3.</p>
+<h4 id="6-常见的报错函数有哪些？"><a href="#6-常见的报错函数有哪些？" class="headerlink" title="6.常见的报错函数有哪些？"></a>6.常见的报错函数有哪些？</h4><p>updatexml（），extractvalue（），floor（），exp（）</p>
+<h4 id="7-什么情况会导致使用堆叠注入？以及怎么防范堆叠？"><a href="#7-什么情况会导致使用堆叠注入？以及怎么防范堆叠？" class="headerlink" title="7.什么情况会导致使用堆叠注入？以及怎么防范堆叠？"></a>7.什么情况会导致使用堆叠注入？以及怎么防范堆叠？</h4><p>mysql_multi_query()函数,mysql_query()函数</p>
+<h4 id="8-堆叠和union注入有什么区别？"><a href="#8-堆叠和union注入有什么区别？" class="headerlink" title="8.堆叠和union注入有什么区别？"></a>8.堆叠和union注入有什么区别？</h4><p>union后面只能跟select，堆叠查询后面可以跟select，insert，update，delete等数据库语句</p>
 
       
     </div>
