@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>python爬虫技术及应用 | fairy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="主要内容：python爬虫技术及应用">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫技术及应用">
+<meta property="og:url" content="http://yoursite.com/2019/10/08/爬虫技术及应用/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="主要内容：python爬虫技术及应用">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/27/p89U2PFAM3i5gOK.png">
+<meta property="og:updated_time" content="2019-11-05T14:57:18.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python爬虫技术及应用">
+<meta name="twitter:description" content="主要内容：python爬虫技术及应用">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/27/p89U2PFAM3i5gOK.png">
+  
+    <link rel="alternate" href="/atom.xml" title="fairy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-left">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-left">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-爬虫技术及应用" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      python爬虫技术及应用
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/08/爬虫技术及应用/" class="article-date">
+  <time datetime="2019-10-08T12:53:04.000Z" itemprop="datePublished">2019-10-08</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>主要内容：python爬虫技术及应用</p>
+<a id="more"></a>
+
+
+
+<p>爬虫？    爬=请求某个网站的数据<br><strong>正常上网的访问流程：</strong><br>我们常讲的超文本标记语言（HTML）<br>1）打开浏览器<br>2）输入网址<br>3）点击链接<br>4）阅读或获取（网页另存为，copy）内容（文本，音频，视频）<br>以上是人为的操作，效率视人的精力和各种因素决定</p>
+<p>所以，我们需要通过计算机语言或技术实现快速的，高效爬取<br>python要实现上述类似于人的操作，需要怎么做呢？<br>python 能够获取的内容或者能够进行技术化东西（如网页源码）<br>1）输入网址<br>2）“点击”连接<br>3） 获取网页源代码<br>4） 解析源代码（制定符合解析规则的内容让Python知道该如何获得内容）<br>5） 保存、存储</p>
+<p>要通过python实现爬虫，需要什么条件呢？<br><strong>1.相对应的库</strong><br>（1） Request：用于模拟人的行为进行数据请求，返回页面对象<br>（2） lxml：用于解析HTML、XML库支持文件，主要对返回得到的页面对象，进行解析，效率极高。<br>    如何获取并应用这些库呢？—pip<br>    pip install xxxx（所需要的库名）<br>    cmd—pip install requests<br>    cmd—pip install lxml<br><strong>2.编码</strong><br>（1）字符串、列表、元组<br>（2） 循环for/while<br>（3）判断if、elif、else<br>（4）对文件的读写操作open（）、read（）、write（）<br>（5）数据库存储sqlite</p>
+<h3 id="1-requests、lxml库的应用"><a href="#1-requests、lxml库的应用" class="headerlink" title="1.requests、lxml库的应用"></a>1.requests、lxml库的应用</h3><h4 id="1-1-requests库"><a href="#1-1-requests库" class="headerlink" title="1.1 requests库"></a>1.1 requests库</h4><p>​    该库是一个第三方库，主要的作用是基于开源的AL开发协议的HTTP库，他比urllib更加方便，可以节约大量的公国时间，完全满足http的应该用需求。<br>​    在使用时：一定要加载导入requests库<br>​    创建请求：<br>​    普通的HTTP请求有两种方式：get/post    post比get更安全<br>​    r=requests.get(‘<a href="http://www/baidu/com&#39;" target="_blank" rel="noopener">http://www/baidu/com&#39;</a>) #等同于在浏览器中输入URL方式<br>​    r=requests.post()#等于类似form表单或隐形的请求，这种方式更安全，但是也有很多阻碍<br>​    </p>
+<pre><code>通过get/post请求以后，会返回一个response对象，里面有我们需要的有效信息。
+除了上面的这两个函数，还有put(),delete(),head() options(),结合这些函数，可以帮助我们进行更复杂的请求操作，反爬虫机制。</code></pre><h4 id="1-2-URL中传递参数"><a href="#1-2-URL中传递参数" class="headerlink" title="1.2 URL中传递参数"></a>1.2 URL中传递参数</h4><p>​    要想在URL中查询数据，我们可以在URL后加？及键值对如：<br>​    http：//<a href="http://www.baidu.com?Kw=zhiliaotang" target="_blank" rel="noopener">www.baidu.com?Kw=zhiliaotang</a><br>​    如果换到python中，要怎么完成参数传递？</p>
+<h4 id="1-3-如何查看响应的内容"><a href="#1-3-如何查看响应的内容" class="headerlink" title="1.3 如何查看响应的内容"></a>1.3 如何查看响应的内容</h4><p>​    <img src="https://i.loli.net/2019/09/27/p89U2PFAM3i5gOK.png" alt="查看响应的内容.png"></p>
+<h3 id="2-lxml"><a href="#2-lxml" class="headerlink" title="2.lxml"></a>2.lxml</h3><h4 id="2-1安装"><a href="#2-1安装" class="headerlink" title="2.1安装"></a>2.1安装</h4><p>lxml是python中的一个非常高效的解析库，支持xml文件和html，对于内容，它支持xpath解析方式<br>xpath：xml path language ，是一门在xml文档中查找信息的语言，它最初是用来做xml文档的搜索工作的，现在被同样的使用与html的内容或文档搜索。<br>xpath 在爬虫中不要依赖lxml库来完成节点的定位，以方便我们获得节点中的数据。</p>
+<p>验证安装成功：import lxml </p>
+<h4 id="2-2-xpath常见规则"><a href="#2-2-xpath常见规则" class="headerlink" title="2.2 xpath常见规则"></a>2.2 xpath常见规则</h4><p>表达式：<br>nodename：选取当前节点的所有子节点。<br>/:从当前节点直接选取子节点<br>//：从当前节点直接选取子孙节点<br>.:选取当前节点<br>..:选取当前节点的上一级节点=选取父节点</p>
+<p>@：选取属性，如<div name="123"></div> @name<br><em>:通配符，选取所有元素节点与元素名<br>@</em>：选取所有的属性</p>
+<p>[@attrib]选取所有属性的所有元素<br>[tag]选取所有具有指定元素的直接子节点</p>
+<p>例如：获得div中所有的内容：【tag=‘text’】选取所有具有指定元素并且文本内容是text的节点。</p>
+<p>爬虫实战<br>目标网址：<a href="http://baiwanzy.com/" target="_blank" rel="noopener">http://baiwanzy.com/</a><br>爬虫目标：<br>1.针对栏目的数据进行爬取，完成1层数据爬取<br>2.针对1层数据，完成2层数据的获取<br>（1）封面<br>（2）基本信息<br>（3）介绍<br>（4）播放地址<br>i。普通播放地址<br>ii。M3u8流地址–ckplayer<br>3.数据存储<br>（1）普通文件存储<br>（2）数据库存储</p>
+<p>准备工作：<br>1.浏览器：chrome，QQ/sougou/360<br>2.python关键库：requests、lxml、sqlite3</p>
+<p>状态码：<br>网页响应以后，会返回一个标识，一告知浏览器当前的状态，这个称之为状态码<br>200：响应正常<br>404：找不到<br>500：服务器错误</p>
+<p>后续工作：<br>打包成exe ：pyinstall [options] [file]<br>数据处理==可视化，清洗····<br>······</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/14/渗透测试面试问题集合/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            渗透测试面试问题合集
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/08/可视化/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">python爬虫数据可视化</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="图片来自网络"></img>
+    <h3 class="avatar-name">
+      
+        童话十二
+      
+    </h3>
+    <p class="avatar-slogan">
+      软工小白菜一枚，网安新晋门童
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eigrp，路由协议/">Eigrp，路由协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GRE-VPN/">GRE-VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP地址和VLSM（变长子网掩码）/">IP地址和VLSM（变长子网掩码）</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VLNA/">VLNA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlmap/">sqlmap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思科/">思科</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透/">渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透，XSS漏洞/">渗透，XSS漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/热备份路由协议，思科专有/">热备份路由协议，思科专有</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/策略路由/">策略路由</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，NAT/">网络，NAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，OSPF/">网络，OSPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络，QoS/">网络，QoS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由协议，路由重分/">路由协议，路由重分</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/防火墙，安全/">防火墙，安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 10px;">渗透，XSS漏洞</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/18/网络安全法学习重点/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/28/XSS漏洞/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/xss进阶/">XSS进阶</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/sqlmap简单使用/">sqlmap简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/click.js"></script>
+</body>
+</html>
