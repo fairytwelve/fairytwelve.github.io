@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>防火墙 - fairy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta name="keywords" content="防火墙，安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="防火墙">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/防火墙/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/h4zRCVGEfXUud1j.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/1xnyTPsSLiNHacm.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/MUs2GxENehdzgrp.png">
+<meta property="og:updated_time" content="2019-09-02T13:09:24.555Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="防火墙">
+<meta name="twitter:description" content="主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1356975_9w555m52u3.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1576807574718">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div class="nexmoe-bg" style="background-image: url(/images/backimg-1.jpg)"></div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>27</div>
+        <div><span>标签</span>16</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">联系方式</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div class="nexmoe-widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 10px;">渗透，XSS漏洞</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright mdui-typo">
+        &copy; 2019 John Doe
+        Theme:  <a href="https://blog.uuzdream.cn" target="_blank">Saigyou-Ayakashi</a>
+        Theme origin <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a><br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+<script>
+    const getRealPath = (pathname, desc = false) => {
+        if (!pathname) {
+            pathname = window.location.pathname
+        }
+        let names = pathname.split("/")
+        if (desc === false) {
+            for (let i = names.length - 1; i >= 0; --i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        } else {
+            for (let i = 0; i < names.length; ++i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        }
+        return "/"
+    }
+    let links = document.querySelectorAll('.nexmoe-list-item');
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("href");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
+        }
+    }
+</script>
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-tab">
+            <a mdui-drawer="{target: '#drawer', swipe: true}">
+              <i class="mdui-icon material-icons">menu</i>
+            </a>
+          </div>
+        <div class="nexmoe-post">
+
+    <div class="nexmoe-post-cover">
+        
+            <img class="post-rand-cover">
+        
+        <h1>防火墙</h1>
+    </div>
+
+    <div class="uuz-post-payload">
+
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月22日</a>
+            <a><i class="nexmoefont icon-areachart"></i>901 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/防火墙，安全/">防火墙，安全</a>
+            
+        </div>
+        <article>
+            <p>主要内容：防火墙的功能和作用；防火墙的类型；防火墙的模式及配置</p>
+<a id="more"></a>
+<h1 id="防火墙的作用与功能"><a href="#防火墙的作用与功能" class="headerlink" title="防火墙的作用与功能"></a>防火墙的作用与功能</h1><ul>
+<li><p>控制<br>在网络连接点上建立一个安全控制点，对进出数据进行限制</p>
+</li>
+<li><p>隔离<br>将需要保护的网络与不可信任网络进行隔离，隐藏信息并进行安全防护</p>
+</li>
+<li><p>记录<br>对进出数据进行检查，记录相关信息</p>
+<h1 id="防火墙的分类"><a href="#防火墙的分类" class="headerlink" title="防火墙的分类"></a>防火墙的分类</h1></li>
+<li><p>按防火墙形态<br>硬件防火墙<br>软件防火墙</p>
+</li>
+<li><p>按技术实现<br>包过滤（透明模式）<br>代理</p>
+</li>
+<li><p>按体系结构分<br>双宿/多宿主机防火墙<br>屏蔽主机防火墙<br>屏蔽子网防火墙</p>
+</li>
+<li><p>其他分类方法</p>
+<h1 id="防火墙的实现技术"><a href="#防火墙的实现技术" class="headerlink" title="防火墙的实现技术"></a>防火墙的实现技术</h1></li>
+<li><p>包过滤技术<br>实现机制：依据数据包的基本标记来控制数据包<br>网络层地址：IP地址（源地址及目的地址）<br>传输层地址：端口（源端口及目的端口）<br>协议：协议类型</p>
+</li>
+<li><p><em>优点:*</em><br>只对数据包的 IP 地址、 TCP/UDP 协议和端口进行分析，规则简单，处理速度较快<br>易于配置<br>对用户透明，用户访问时不需要提供额外的密码或使用特殊的命令</p>
+</li>
+<li><p><em>缺点：*</em><br>检查和过滤器只在网络层，不能识别应用层协议或维持连接状态<br>安全性薄弱，不能防止IP欺骗等</p>
+</li>
+<li><p>代理网关技术<br>每一个内外网络之间的连接都要通过防火墙的介入和转换，加强了控制</p>
+</li>
+<li><p><em>分类*</em></p>
+<h2 id="电路级代理"><a href="#电路级代理" class="headerlink" title="电路级代理"></a>电路级代理</h2><p>建立回路，对数据包进行转发</p>
+</li>
+<li><p><em>优点*</em><br>能提供NAT，为内部地址管理提供灵活性，隐藏内部网络等<br>适用面广</p>
+</li>
+<li><p><em>缺点*</em><br>仅简单的在两个连接间转发数据，不能识别数据包的内容</p>
+</li>
+</ul>
+<h2 id="应用代理"><a href="#应用代理" class="headerlink" title="应用代理"></a>应用代理</h2><p>工作在应用层<br>使用代理技术，对应用层数据包进行检查<br>对应用或内容进行过滤，例如：禁止FTP的 “put”命令<br><strong>优点</strong><br>可以检查应用层内容，根据内容进行审核和过滤<br>提供良好的安全性<br><strong>缺点</strong><br>支持的应用数量有限<br>性能表现欠佳</p>
+<ul>
+<li>状态检测技术<h2 id="状态检测技术的特点"><a href="#状态检测技术的特点" class="headerlink" title="状态检测技术的特点"></a>状态检测技术的特点</h2></li>
+</ul>
+<p>1.安全性高，可根据通信和应用程序状态确定是否允许包的通行<br>2.性能高，在数据包进入防火墙时就进行识别和判断<br>3.适应性好<br>4.对用户、应用程序透明</p>
+<ul>
+<li>自适应代理技术</li>
+<li><em>特点:*</em></li>
+</ul>
+<p>1.根据用户定义安全规则动态“适应”传输网络数据<br>2.代理服务可以从应用层转发，也可以从网络层转发<br>　　　　　　高安全要求：则在应用层进行检查<br>　　　　　　明确会话安全细节：则在链路层数据包转发<br>3.兼有高安全性和高效率</p>
+<h1 id="防火墙部署方式"><a href="#防火墙部署方式" class="headerlink" title="防火墙部署方式"></a>防火墙部署方式</h1><h2 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h2><p><img src="https://i.loli.net/2019/09/02/BoIKX2Uy3wuqhf4.png" alt="路由模式.png"></p>
+<h2 id="透明模式"><a href="#透明模式" class="headerlink" title="透明模式"></a>透明模式</h2><p><img src="https://i.loli.net/2019/09/02/h4zRCVGEfXUud1j.png" alt="透明模式.png"></p>
+<h2 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h2><p><img src="https://i.loli.net/2019/09/02/1xnyTPsSLiNHacm.png" alt="混合模式.png"></p>
+<h1 id="防火墙的典型部署"><a href="#防火墙的典型部署" class="headerlink" title="防火墙的典型部署"></a>防火墙的典型部署</h1><p><img src="https://i.loli.net/2019/09/02/MUs2GxENehdzgrp.png" alt="部署.png"></p>
+<h1 id="防护墙的策略设置"><a href="#防护墙的策略设置" class="headerlink" title="防护墙的策略设置"></a>防护墙的策略设置</h1><ul>
+<li><p>没有明确允许的就是禁止<br>　　　　　　先阻止所有数据包<br>　　　　　　需要的给予开放</p>
+</li>
+<li><p>没有明确禁止的就是允许<br>　　　　　　对明确禁止的设置策略</p>
+<h1 id="防火墙的不足和局限性"><a href="#防火墙的不足和局限性" class="headerlink" title="防火墙的不足和局限性"></a>防火墙的不足和局限性</h1></li>
+</ul>
+<p>1.难于管理和配置，易造成安全漏洞<br>2.防外不防内，不能防范恶意的知情者<br>3.只实现了粗粒度的访问控制<br>4.很难为用户在防火墙内外提供一致的安全策略<br>5.不能防范病毒</p>
+
+        </article>
+
+    </div>
+
+
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/08/22/防火墙/" title="http://yoursite.com/2019/08/22/防火墙/" target="_blank" rel="noopener">http://yoursite.com/2019/08/22/防火墙/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+    <p class="mdui-text-color-red-a400" style="margin-bottom: 0;">转载请附原文链接</p>
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'SaigyoujiYuyuko233.github.io',
+        owner: 'SaigyoujiYuyuko233',
+        admin: 'SaigyoujiYuyuko233'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1576807574434"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

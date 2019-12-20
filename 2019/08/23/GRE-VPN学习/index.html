@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>GRE学习 - fairy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta name="keywords" content="GRE-VPN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GRE学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/GRE-VPN学习/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/02/Dr1sGTBzCX3ynZv.png">
+<meta property="og:updated_time" content="2019-09-02T12:47:19.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GRE学习">
+<meta name="twitter:description" content="GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1356975_9w555m52u3.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1576807574706">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div class="nexmoe-bg" style="background-image: url(/images/backimg-1.jpg)"></div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>27</div>
+        <div><span>标签</span>16</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">联系方式</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div class="nexmoe-widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 10px;">渗透，XSS漏洞</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright mdui-typo">
+        &copy; 2019 John Doe
+        Theme:  <a href="https://blog.uuzdream.cn" target="_blank">Saigyou-Ayakashi</a>
+        Theme origin <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a><br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+<script>
+    const getRealPath = (pathname, desc = false) => {
+        if (!pathname) {
+            pathname = window.location.pathname
+        }
+        let names = pathname.split("/")
+        if (desc === false) {
+            for (let i = names.length - 1; i >= 0; --i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        } else {
+            for (let i = 0; i < names.length; ++i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        }
+        return "/"
+    }
+    let links = document.querySelectorAll('.nexmoe-list-item');
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("href");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
+        }
+    }
+</script>
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-tab">
+            <a mdui-drawer="{target: '#drawer', swipe: true}">
+              <i class="mdui-icon material-icons">menu</i>
+            </a>
+          </div>
+        <div class="nexmoe-post">
+
+    <div class="nexmoe-post-cover">
+        
+            <img class="post-rand-cover">
+        
+        <h1>GRE学习</h1>
+    </div>
+
+    <div class="uuz-post-payload">
+
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月23日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/GRE-VPN/">GRE-VPN</a>
+            
+        </div>
+        <article>
+            <p>GRE：Generic Routing Encapsulation 通用路由封装协议，一种最传统的隧道协议。根本功能是要实现隧道功能，使得通过隧道连接的两个远程网络就像直连网络一样，可以相互通信。</p>
+<a id="more"></a>
+<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>IGP：rip，eigrp，ospf<br>BGP：EGP（IBGP和EBGP）</p>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>GRE在两个远程网络之间模拟出直连链路，从而使网络间达到直连的效果。<br>GRE完成3次封装：<br>    * 就是在GRE隧道中传输的数据包都有3个包头，因为我们只谈IP协议，所以GRE中的IP数据包是一层套一层，总共有3个IP地址。<br>    * GRE在实现隧道时，需要创建虚拟直连链路，GRE实现的虚拟直连链路可以认为是隧道，隧道是模拟链路，所以隧道两端也有IP地址，但隧道需要在公网中找到起点和终点，所以隧道的源和终点分别都以公网IP地址结尾。总的来说就是，隧道本身两端有自己的ip地址，设置隧道时需要知道源地址和目标地址。</p>
+<p>隧道传递数据包的过程分3步：<br>  GRE在实现隧道时，需要创建虚拟直连链路，GRE实现的虚拟直连链路可以认为是隧道，隧道是模拟链路，所以隧道两端也有IP地址，但隧道需要在公网中找到起点和终点，所以隧道的源和终点分别都以公网IP地址结尾，<br><img src="https://i.loli.net/2019/08/23/MPNurVtkZIphwfB.png" alt="image.png"></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>GRE VPN配置实例<br>   示例1：<br>某个企业的2个站点，都接入到Internet，现在希望2个站点能够互通<br>GRE（Generic Routing Encapsulation)<br>    GRE能够将一种三层协议的报文封装到另一种三层协议的报文中进行传输<br>    GRE是一种隧道能力极强的技术，但它的安全性较差，没有对数据做加密（IPSec则可以加密）原理是将L3层部分当成数据部分，在外层加上一层ip头，数据到达PE1的隧道源端时，查找的目地IP（地址是PE2的隧道目地IP地址），然后就会走tunel 0发送给PE2，PE2收到后拆掉tunel的头部后查看里面的L3层ip头，发现目的地址是自己连接的客户网络site2，就会将数据包交给客户网络site2，从而实现site之间的通信。<br><img src="https://i.loli.net/2019/09/02/Dr1sGTBzCX3ynZv.png" alt="image.png"><br>R1为PE1，R2为P，R3为PE2，两端PC分别模拟客户的两个site，要求进行GREvpn通信<br> 隧道源端配置：<br>PE1(config)#intface f0/0<br>PE1(config-if)#ip add 192.168.1.1 255.255.255.0<br>PE1(config)#intface f0/1<br>PE1(config-if)#ip add 12.1.1.1 255.255.255.0</p>
+<p>router eigrp 1              ISP内部IGP使用eigrp<br>network 12.0.0.0<br>no auto-summary</p>
+<p>PE1(config)#int tunnel 0<br>PE1(config-if)#tunnel source 12.1.1.1<br>PE1(config-if)#tunnel destination 23.1.1.2<br>PE1(config-if)#ip add 10.0.0.1 255.255.255.0     用于tunnel隧道接口之间通信，必须在一个网段</p>
+<p>PE1(config)#ip route 172.16.1.0 255.255.255.0 tunnel 0   告诉去往172.16.1.0/24的vpn数据包下一跳出接口走隧道</p>
+<p>隧道目地端配置：<br>PE2(config)#intface f0/1<br>PE2(config-if)#ip add 172.16.1.1 255.255.255.0</p>
+<p>PE2(config)#int tunnel 0<br>PE2(config-if)#tunnel source 23.1.1.2<br>PE2(config-if)#tunnel destination 12.1.1.1<br>PE2(config-if)#ip add 10.0.0.2 255.255.255.0</p>
+<p>PE2(config)#ip route 192.168.1.0 255.255.255.0 tunnel 0</p>
+<p>R1#show ip route<br>Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP<br>       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area<br>       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2<br>       E1 - OSPF external type 1, E2 - OSPF external type 2<br>       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2<br>       ia - IS-IS inter area, * - candidate default, U - per-user static route<br>       o - ODR, P - periodic downloaded static route<br>Gateway of last resort is not set<br>     23.0.0.0/24 is subnetted, 1 subnets<br>D       23.1.1.0 [90/307200] via 12.1.1.2, 01:40:37, FastEthernet0/1<br>     172.16.0.0/24 is subnetted, 1 subnets<br>S       172.16.1.0 is directly connected, Tunnel0<br>     10.0.0.0/24 is subnetted, 1 subnets<br>C       10.0.0.0 is directly connected, Tunnel0<br>     12.0.0.0/24 is subnetted, 1 subnets<br>C       12.1.1.0 is directly connected, FastEthernet0/1<br>C    192.168.1.0/24 is directly connected, FastEthernet0/0</p>
+<p>PC1&gt; show ip<br>NAME        : PC1[1]<br>IP/MASK     : 192.168.1.10/24<br>GATEWAY     : 192.168.1.1<br>DNS         :<br>MAC         : 00:50:79:66:68:00<br>LPORT       : 10000<br>RHOST:PORT  : 172.17.17.243:10001<br>MTU:        : 1500<br>PC1&gt; ping 172.16.1.10<br>172.16.1.10 icmp_seq=1 timeout<br>172.16.1.10 icmp_seq=2 timeout<br>84 bytes from 172.16.1.10 icmp_seq=3 ttl=62 time=49.003 ms<br>84 bytes from 172.16.1.10 icmp_seq=4 ttl=62 time=49.003 ms<br>84 bytes from 172.16.1.10 icmp_seq=5 ttl=62 time=49.003 ms</p>
+
+        </article>
+
+    </div>
+
+
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/08/23/GRE-VPN学习/" title="http://yoursite.com/2019/08/23/GRE-VPN学习/" target="_blank" rel="noopener">http://yoursite.com/2019/08/23/GRE-VPN学习/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+    <p class="mdui-text-color-red-a400" style="margin-bottom: 0;">转载请附原文链接</p>
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'SaigyoujiYuyuko233.github.io',
+        owner: 'SaigyoujiYuyuko233',
+        admin: 'SaigyoujiYuyuko233'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1576807574434"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

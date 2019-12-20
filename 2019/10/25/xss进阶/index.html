@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>XSS进阶 - fairy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="xss又叫CSS(Cross-SiteScripting),跨站脚本攻击。恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意用户的特殊目的。主要指的自己构造XSS跨站漏洞网页或者寻找非目标机以外的有跨站漏洞的网页。">
+<meta name="keywords" content="渗透，XSS漏洞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS进阶">
+<meta property="og:url" content="http://yoursite.com/2019/10/25/xss进阶/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="xss又叫CSS(Cross-SiteScripting),跨站脚本攻击。恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意用户的特殊目的。主要指的自己构造XSS跨站漏洞网页或者寻找非目标机以外的有跨站漏洞的网页。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-28T00:58:51.704Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS进阶">
+<meta name="twitter:description" content="xss又叫CSS(Cross-SiteScripting),跨站脚本攻击。恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意用户的特殊目的。主要指的自己构造XSS跨站漏洞网页或者寻找非目标机以外的有跨站漏洞的网页。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1356975_9w555m52u3.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1576807574482">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div class="nexmoe-bg" style="background-image: url(/images/backimg-1.jpg)"></div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>27</div>
+        <div><span>标签</span>16</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">联系方式</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div class="nexmoe-widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 10px;">渗透，XSS漏洞</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright mdui-typo">
+        &copy; 2019 John Doe
+        Theme:  <a href="https://blog.uuzdream.cn" target="_blank">Saigyou-Ayakashi</a>
+        Theme origin <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a><br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+<script>
+    const getRealPath = (pathname, desc = false) => {
+        if (!pathname) {
+            pathname = window.location.pathname
+        }
+        let names = pathname.split("/")
+        if (desc === false) {
+            for (let i = names.length - 1; i >= 0; --i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        } else {
+            for (let i = 0; i < names.length; ++i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        }
+        return "/"
+    }
+    let links = document.querySelectorAll('.nexmoe-list-item');
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("href");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
+        }
+    }
+</script>
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-tab">
+            <a mdui-drawer="{target: '#drawer', swipe: true}">
+              <i class="mdui-icon material-icons">menu</i>
+            </a>
+          </div>
+        <div class="nexmoe-post">
+
+    <div class="nexmoe-post-cover">
+        
+            <img class="post-rand-cover">
+        
+        <h1>XSS进阶</h1>
+    </div>
+
+    <div class="uuz-post-payload">
+
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年10月25日</a>
+            <a><i class="nexmoefont icon-areachart"></i>526 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/渗透，XSS漏洞/">渗透，XSS漏洞</a>
+            
+        </div>
+        <article>
+            <p>xss又叫CSS(Cross-SiteScripting),跨站脚本攻击。恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意用户的特殊目的。主要指的自己构造XSS跨站漏洞网页或者寻找非目标机以外的有跨站漏洞的网页。</p>
+<a id="more"></a>
+<h1 id="XSS进阶："><a href="#XSS进阶：" class="headerlink" title="XSS进阶："></a>XSS进阶：</h1><p><a href="https://www.freebuf.com/articles/web/153055.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/153055.html</a></p>
+<h2 id="XSS常用的测试语句有："><a href="#XSS常用的测试语句有：" class="headerlink" title="XSS常用的测试语句有："></a>XSS常用的测试语句有：</h2><p><code>&lt;scrip&gt;alert(/xss/)&lt;/scrip&gt;</code></p>
+<p><code>&lt;img src=x onerror=alert(/xss/)&gt;</code></p>
+<p><code>&lt;svg onload=alert(xss/)&gt;</code></p>
+<p><code>&lt;a href=javascript:alert(/xss/)&gt;</code></p>
+<h2 id="常见的xss的绕过编码有js编码，HTML实体编码和URL编码。"><a href="#常见的xss的绕过编码有js编码，HTML实体编码和URL编码。" class="headerlink" title="常见的xss的绕过编码有js编码，HTML实体编码和URL编码。"></a>常见的xss的绕过编码有js编码，HTML实体编码和URL编码。</h2><h3 id="JS编码"><a href="#JS编码" class="headerlink" title="JS编码"></a>JS编码</h3><p>JS提供了四种字符编码的策略，</p>
+<p>三个八进制数字，如果个数不够，在前面补0，列如:”e”的编码为“\145”.</p>
+<p>两个十六进制数字，如果个数不够，在前面补0，列如“e”的编码为“\x65”.</p>
+<p>四个十六进制数字，如果个数不够，在前面补0，列如“e”的编码为“\u0065”</p>
+<p>对于一些控制字符，使用特殊的C类型的转义风格（例如\n和\r）</p>
+<h3 id="HTML-实体编码"><a href="#HTML-实体编码" class="headerlink" title="HTML 实体编码"></a>HTML 实体编码</h3><p>命名实体：以&amp;开头，以分号结尾的，列如“&lt;”的编码是“&amp;lt“.</p>
+<p>字符编码：十进制，十六进制ASCII码或Unicode字符编码，样式为“&amp;#数值；“，</p>
+<p>列如“&lt;“ 可以编码为”&#060;“和 ”&amp;#x3c；“。</p>
+<h3 id="URL-编码"><a href="#URL-编码" class="headerlink" title="URL 编码"></a>URL 编码</h3><p>这里的URL编码，也是两次URL全编码的结果。如果alert被过滤，</p>
+<p>结果为:<code>%25%36%31%25%36%43%25%36%35%25%37%32%25%37%34</code></p>
+<p>在使用XSS编码测试时，需要考虑HTML渲染的顺序，特别是针对多种编码组合时，要选择合适的编码方式进行测试。</p>
+<h2 id="使用XXS平台测试xss漏洞。"><a href="#使用XXS平台测试xss漏洞。" class="headerlink" title="使用XXS平台测试xss漏洞。"></a>使用XXS平台测试xss漏洞。</h2><h1 id="XSS漏洞修复建议"><a href="#XSS漏洞修复建议" class="headerlink" title="XSS漏洞修复建议"></a>XSS漏洞修复建议</h1><p>因为XSS漏洞涉及输入和输出两部分，所以其修复也分为两种。</p>
+<p>过滤输入的数据，包括<code>““” “&lt;“ “&gt;” “on”</code>等非法字符。</p>
+<p>对输出到页面的数据进行相应的编码转换，包括HTML实体编码，JavaScript 编码等。</p>
+
+        </article>
+
+    </div>
+
+
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/10/25/xss进阶/" title="http://yoursite.com/2019/10/25/xss进阶/" target="_blank" rel="noopener">http://yoursite.com/2019/10/25/xss进阶/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+    <p class="mdui-text-color-red-a400" style="margin-bottom: 0;">转载请附原文链接</p>
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'SaigyoujiYuyuko233.github.io',
+        owner: 'SaigyoujiYuyuko233',
+        admin: 'SaigyoujiYuyuko233'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1576807574434"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

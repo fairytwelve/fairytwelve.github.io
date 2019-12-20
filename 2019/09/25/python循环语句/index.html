@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  
+  <title>python·循环语句 - fairy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="主要内容：循环语句">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python·循环语句">
+<meta property="og:url" content="http://yoursite.com/2019/09/25/python循环语句/index.html">
+<meta property="og:site_name" content="fairy">
+<meta property="og:description" content="主要内容：循环语句">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/25/NDoIWAZYmqFkcg2.png">
+<meta property="og:updated_time" content="2019-11-05T14:44:00.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python·循环语句">
+<meta name="twitter:description" content="主要内容：循环语句">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/25/NDoIWAZYmqFkcg2.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1356975_9w555m52u3.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1576807574633">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div class="nexmoe-bg" style="background-image: url(/images/backimg-1.jpg)"></div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/">
+            <img src="/images/avatar.png">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>27</div>
+        <div><span>标签</span>16</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">联系方式</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div class="nexmoe-widget tagcloud">
+      <a href="/tags/Eigrp，路由协议/" style="font-size: 10px;">Eigrp，路由协议</a> <a href="/tags/GRE-VPN/" style="font-size: 10px;">GRE-VPN</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 10px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/VLNA/" style="font-size: 10px;">VLNA</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sqlmap/" style="font-size: 10px;">sqlmap</a> <a href="/tags/思科/" style="font-size: 10px;">思科</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 10px;">渗透，XSS漏洞</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 10px;">热备份路由协议，思科专有</a> <a href="/tags/策略路由/" style="font-size: 10px;">策略路由</a> <a href="/tags/网络，NAT/" style="font-size: 10px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 10px;">网络，OSPF</a> <a href="/tags/网络，QoS/" style="font-size: 10px;">网络，QoS</a> <a href="/tags/路由协议，路由重分/" style="font-size: 10px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 10px;">防火墙，安全</a>
+    </div>
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright mdui-typo">
+        &copy; 2019 John Doe
+        Theme:  <a href="https://blog.uuzdream.cn" target="_blank">Saigyou-Ayakashi</a>
+        Theme origin <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a><br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+    </div>
+</div><!-- .nexmoe-drawer -->
+
+<script>
+    const getRealPath = (pathname, desc = false) => {
+        if (!pathname) {
+            pathname = window.location.pathname
+        }
+        let names = pathname.split("/")
+        if (desc === false) {
+            for (let i = names.length - 1; i >= 0; --i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        } else {
+            for (let i = 0; i < names.length; ++i) {
+                let name = names[i].trim()
+                if (name.length > 0 && name !== "/" && name !== "index.html") {
+                    return name
+                }
+            }
+        }
+        return "/"
+    }
+    let links = document.querySelectorAll('.nexmoe-list-item');
+    let rootRealPath = getRealPath(window.location.pathname, true);
+    for (let link of links) {
+        let linkPath = link.getAttribute("href");
+        if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+            link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
+        }
+    }
+</script>
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-tab">
+            <a mdui-drawer="{target: '#drawer', swipe: true}">
+              <i class="mdui-icon material-icons">menu</i>
+            </a>
+          </div>
+        <div class="nexmoe-post">
+
+    <div class="nexmoe-post-cover">
+        
+            <img class="post-rand-cover">
+        
+        <h1>python·循环语句</h1>
+    </div>
+
+    <div class="uuz-post-payload">
+
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月25日</a>
+            <a><i class="nexmoefont icon-areachart"></i>407 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/python/">python</a>
+            
+        </div>
+        <article>
+            <p>主要内容：循环语句</p>
+<a id="more"></a>
+
+<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p><strong>1）if语句If，如果，即如果（满足条件）…则（执行）…</strong><br>用法：if可以判断真假表达式，或者是能判断是否为空的数据结构，在表达式为真时运行的代码<br>书写方式：<br>在所有需要在if里面运行的代码，都需要添加至少一个空格作用缩进，一般约定缩进用4个空格，即一个tab，目的是方便阅读，同时满足python的规则，一旦退出缩进，程序或新的代码就不属于这个if</p>
+<p><strong>2）多重条件的判断</strong><br>非黑即白<br><code>If条件 ：</code><br><code>Codeing</code><br><code>Else：</code><br><code>Codeing</code></p>
+<p><code>If条件：</code><br><code>Codeing</code><br><code>Elif:</code><br><code>Codeing</code><br><code>...</code><br><code>Else:</code><br><code>Codeing</code></p>
+<p><strong>3）判断中的短路效应</strong><br>用两个关键的连接符连接的条件<br><strong>And</strong>：与，都必须为真，如果有一个为假，那么后面的条件都不会执行（全真才真）<br><strong>Or</strong>:或，只要有一个满足，后面的条件都不会再判断。（有真为真）</p>
+<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p>语法：<br>``for x in y：<code>循环体</code><br>x变量，指向y迭代器的内容<br>for i in range（10）：<br>i的范围是0-9<br>结合列表做循环<br>结合字符串做循环</p>
+<p>#循环字典<br>dic = {‘菜品1’:10,’菜品2’:20}<br>``for key in dic:<code></code>print(‘菜品：{}’.format(key))<code></code>print(‘价格：{}’.format(dic[key]))<code>print(&quot;---------&quot;)</code></p>
+<p>format函数使用<br><img src="https://i.loli.net/2019/09/25/NDoIWAZYmqFkcg2.png" alt="format函数多参数.png"></p>
+<h1 id="while循环："><a href="#while循环：" class="headerlink" title="while循环："></a>while循环：</h1><p>主要是在不知道需要执行多少次时，可以优先考虑while循环。在这种情况下，要么就一直运行（死循环），要么就是按条件结束跳出循环。</p>
+<p>``while 条件：<code>循环体</code></p>
+<p>跳出（continue）或中断循环（break）</p>
+
+        </article>
+
+    </div>
+
+
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/09/25/python循环语句/" title="http://yoursite.com/2019/09/25/python循环语句/" target="_blank" rel="noopener">http://yoursite.com/2019/09/25/python循环语句/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+    <p class="mdui-text-color-red-a400" style="margin-bottom: 0;">转载请附原文链接</p>
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'SaigyoujiYuyuko233.github.io',
+        owner: 'SaigyoujiYuyuko233',
+        admin: 'SaigyoujiYuyuko233'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+
+</div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1576807574434"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
