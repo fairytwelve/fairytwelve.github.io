@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>对称加密和非对称加密 | fairy</title></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">对称加密和非对称加密</h1><a id="logo" href="/.">fairy</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">对称加密和非对称加密</h1><div class="post-meta"><a href="/2019/12/23/对称加密和非对称加密/#comments" class="comment-count"></a><p><span class="date">Dec 23, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>之前学了https的底层原理，其中涉及到证书验证时是非对称加密算法，数据传输时是对称加密算法。所以，今天来深入了解一下这两种加密算法的原理。</p>
+<a id="more"></a>
+
+<h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p>对称加密(也叫私钥加密)指加密和解密使用相同密钥的加密算法。</p>
+<p>有时又叫传统密码算法，就是加密密钥能够从解密密钥中推算出来，同时解密密钥也可以从加密密钥中推算出来。</p>
+<p>而在大多数的对称算法中，加密密钥和解密密钥是相同的，所以也称这种加密算法为<strong>秘密密钥算法或单密钥算法</strong>。</p>
+<p>它要求发送方和接收方在安全通信之前，商定一个密钥。</p>
+<p>对称算法的安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信的安全性至关重要。 </p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>主要有DES算法，3DES（ TripleDES ）算法， AES 算法、TDEA算法，Blowfish算法，RC5算法，IDEA算法。 </p>
+<h3 id="1-DES算法"><a href="#1-DES算法" class="headerlink" title="1 DES算法"></a>1 DES算法</h3><p>DES算法全称为Data Encryption  Standard，即数据加密算法，它是IBM公司于1975年研究成功并公开发表的。</p>
+<p>DES算法的入口参数有三个：<strong>Key、Data、Mode</strong>。</p>
+<p>其中Key为8个字节共64位，是DES算法的工作密钥；</p>
+<p>Data也为8个字节64位，是要被加密或被解密的数据；</p>
+<p>Mode为DES的工作方式,有两种：加密或解密。</p>
+<p> DES算法把64位的明文输入块变为64位的密文输出块，它所使用的密钥也是64位，其算法主要分为两步： </p>
+<p> <strong>（1）初始置换</strong></p>
+<p>其功能是把输入的64位数据块按位重新组合,并把输出分为L0、R0两部分，每部分各长32位，其置换规则为将输入的第58位换到第一位，第50位换到第2位……依此类推,最后一位是原来的第7位。L0、R0则是换位输出后的两部分，L0是输出的左32位，R0是右32位，例：设置换前的输入值为D1D2D3……D64，则经过初始置换后的结果为:L0=D58D50……D8；R0=D57D49……D7。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">58,50,42,34,26,18,10,2,</span><br><span class="line">60,52,44,36,28,20,12,4,</span><br><span class="line">62,54,46,38,30,22,14,6,</span><br><span class="line">64,56,48,40,32,24,16,8,</span><br><span class="line">57,49,41,33,25,17, 9,1,</span><br><span class="line">59,51,43,35,27,19,11,3,</span><br><span class="line">61,53,45,37,29,21,13,5,</span><br><span class="line">63,55,47,39,31,23,15,7,</span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）逆置换</strong></p>
+<p>经过16次迭代运算后，得到L16、R16,将此作为输入，进行逆置换，逆置换正好是初始置换的逆运算，由此即得到密文输出。</p>
+<p> <strong>优点：</strong></p>
+<p>效率高，算法简单，系统开销小</p>
+<p>适合加密大量数据</p>
+<p>明文长度和密文长度相等</p>
+<p><strong>缺点：</strong></p>
+<p>需要以安全方式进行秘钥交换</p>
+<p>秘钥管理复杂</p>
+<h3 id="2-3DES算法"><a href="#2-3DES算法" class="headerlink" title="2  3DES算法"></a>2  3DES算法</h3><p>3DES(或称为Triple DES)是三重数据加密算法(TDEA，Triple Data Encryption Algorithm)块密码的通称。它相当于是对每个数据块应用三次DES加密算法。由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解;3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码。</p>
+<p>使用3条56位的密钥对数据进行三次加密。3DES（即Triple DES）是DES向AES过渡的加密算法。</p>
+<h3 id="3-AES算法"><a href="#3-AES算法" class="headerlink" title="3 AES算法"></a>3 AES算法</h3><p>简单地描述一下AES算法加解密的过程：</p>
+<p><img src="https://i.loli.net/2019/12/23/xtKYhT5ep8rUmJ9.png" alt="AES算法.png"></p>
+<p>AES为分组密码，分组密码也就是把明文分成一组一组的，每组长度相等，每次加密一组数据，直到加密完整个明文。在AES标准规范中，分组长度只能是128位，也就是说，每个分组为16个字节（每个字节8位）。密钥的长度可以使用128位、192位或256位。密钥的长度不同，推荐加密轮数也不同，如下表所示： </p>
+<table>
+<thead>
+<tr>
+<th>AES</th>
+<th>密钥长度（32位比特字）</th>
+<th>分组长度（32位比特字）</th>
+<th align="center">加密轮数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AES-128</td>
+<td>4</td>
+<td>4</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td>AES-192</td>
+<td>6</td>
+<td>4</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>AES-256</td>
+<td>8</td>
+<td>4</td>
+<td align="center">14</td>
+</tr>
+</tbody></table>
+<p>上面说到，AES的加密公式为C = E(K,P)，在加密函数E中，会执行一个轮函数，并且执行10次这个轮函数，这个轮函数的前9次执行的操作是一样的，只有第10次有所不同。</p>
+<p>也就是说，一个明文分组会被加密10轮。AES的核心就是实现一轮中的所有操作。 </p>
+<p> AES的处理单位是字节，128位的输入明文分组P和输入密钥K都被分成16个字节，分别记为P = P0 P1 … P15 和 K = K0 K1 … K15。</p>
+<p>如，明文分组为P =  abcdefghijklmnop,其中的字符a对应P0，p对应P15。</p>
+<p>一般地，明文分组用字节为单位的正方形矩阵描述，称为状态矩阵。在算法的每一轮中，状态矩阵的内容不断发生变化，最后的结果作为密文输出。 </p>
+<hr>
+<h1 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h1><p>非对称加密算法实现机密信息交换的基本过程是：甲方生成一对密钥并将公钥公开，需要向甲方发送信息的其他角色(乙方)使用该密钥(甲方的公钥)对机密信息进行加密后再发送给甲方；甲方再用自己私钥对加密后的信息进行解密。甲方想要回复乙方时正好相反，使用乙方的公钥对数据进行加密，同理，乙方使用自己的私钥来进行解密。 </p>
+<p>主要算法：RSA、ELgamal、背包算法、 Rabin、D-H、 ECC</p>
+<h3 id="RSA算法"><a href="#RSA算法" class="headerlink" title="RSA算法"></a>RSA算法</h3><p>RSA是第一个比较完善的公开密钥算法，它既能用于加密，也能用于数字签名。 </p>
+<p>虽然密码分析者既不能证明也不能否定RSA的安全性，但这恰恰说明该算法有一定的可信性，目前它已经成为最流行的公开密钥算法。 </p>
+<p>RSA的公钥、私钥的组成，以及加密过程、解密过程的公式可见于下表：</p>
+<table>
+<thead>
+<tr>
+<th>公钥KU</th>
+<th>n：两素数p和q的乘积（p和q必须保密）（n为模值）e：与(p-1)*(q-1)互质（e称为公钥指数）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私钥KR</td>
+<td>n：两素数p和q的乘积（p和q必须保密）（n为模值）d：满足(d<em>e) mod ((p-1)</em>(q-1)) = 1（d称为私钥指数）</td>
+</tr>
+<tr>
+<td>加密过程</td>
+<td>C=M^e mod n  （C为密文）</td>
+</tr>
+<tr>
+<td>解密过程</td>
+<td>M=C^d mod n  （M为明文）</td>
+</tr>
+</tbody></table>
+<p>其中，符号^表示数学上的指数运算；mod表示模运算，即相除取余数。具体算法步骤如下：<br>（1）选择一对不同的、足够大的素数p，q。<br>（2）计算n=p<em>q。<br>（3）计算f(n)=(p-1)</em>(q-1)，同时对p, q严加保密，不让任何人知道。<br>（4）找一个与f(n)互质的数e作为公钥指数，且1&lt;e&lt;f(n)。<br>（5）计算私钥指数d，使得d满足(d*e) mod f(n) = 1<br>（6）公钥KU=(e,n)，私钥KR=(d,n)。<br>（7）加密时，先将明文变换成0至n-1的一个整数M。若明文较长，可先分割成适当的组，然后再进行交换。设密文为C，则加密过程为：C=M^e mod n。<br>（8）解密过程为：M=C^d mod n。 </p>
+<p> <strong>缺点1</strong>：虽然RSA的安全性依赖于大数的因子分解，但并没有从理论上证明破译RSA的难度与大数分解难度等价。即RSA的重大缺陷是无法从理论上把握它的保密性能如何。 </p>
+<p>下表列出了对同一安全级别所对应的密钥长度。</p>
+<table>
+<thead>
+<tr>
+<th>保密级别</th>
+<th>对称密钥长度（bit）</th>
+<th>RSA密钥长度（bit）</th>
+<th>ECC密钥长度（bit）</th>
+<th>保密年限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>80</td>
+<td>80</td>
+<td>1024</td>
+<td>160</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>112</td>
+<td>112</td>
+<td>2048</td>
+<td>224</td>
+<td>2030</td>
+</tr>
+<tr>
+<td>128</td>
+<td>128</td>
+<td>3072</td>
+<td>256</td>
+<td>2040</td>
+</tr>
+<tr>
+<td>192</td>
+<td>192</td>
+<td>7680</td>
+<td>384</td>
+<td>2080</td>
+</tr>
+<tr>
+<td>256</td>
+<td>256</td>
+<td>15360</td>
+<td>512</td>
+<td>2120</td>
+</tr>
+</tbody></table>
+<p> <strong>缺点2</strong>：从上边可以看出，同样安全级别的加密算法，RSA需要更长的密钥。这就使运算速度较慢，较对称密码算法慢几个数量级。且随着大数分解技术的发展，这个长度还在增加，不利于数据格式的标准化。</p>
+<p> <strong>缺点3</strong>：RSA产生密钥很麻烦，受到素数产生技术的限制，因而难以做到一次一密。</p>
+<p>因此，<strong>使用RSA只能加密少量数据</strong>，大量的数据加密还要靠对称密码算法。实际应用中一般用来加密对称算法的密钥，而密文多用对称加密算法加密传输。</p>
+<h3 id="ECC算法"><a href="#ECC算法" class="headerlink" title="ECC算法"></a>ECC算法</h3><p>椭圆加密算法（ECC）是一种公钥加密算法，最初由 Koblitz 和 Miller 两人于1985年提出，其数学基础是利用椭圆曲线上的有理点构成 Abel 加法群上椭圆离散对数的计算困难性。</p>
+<p>公钥密码体制根据其所依据的难题一般分为三类：大整数分解问题类、离散对数问题类、椭圆曲线类。有时也把椭圆曲线类归为离散对数类。</p>
+<p>ECC 的主要<strong>优势</strong>是在某些情况下它比其他的方法使用更小的密钥 (比如 RSA)，提供相当的或更高等级的安全。</p>
+<p>ECC 的另一个<strong>优势</strong>是可以定义群之间的双线性映射，基于 Weil 对或是 Tate 对；双线性映射已经在密码学中发现了大量的应用，例如基于身份的加密。</p>
+<p>不过<strong>缺点</strong>就是加密和解密操作的实现比其他机制花费的时间长。</p>
+</div><div class="post-copyright"><blockquote><p>原文作者: fairytwelve</p><p>原文链接: <a href="http://yoursite.com/2019/12/23/对称加密和非对称加密/">http://yoursite.com/2019/12/23/对称加密和非对称加密/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/密码/">密码</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/12/23/HTTPS详解/" class="next">HTTPS详解.md</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#对称加密"><span class="toc-text">对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DES算法"><span class="toc-text">1 DES算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3DES算法"><span class="toc-text">2  3DES算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AES算法"><span class="toc-text">3 AES算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#非对称加密"><span class="toc-text">非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA算法"><span class="toc-text">RSA算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ECC算法"><span class="toc-text">ECC算法</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/23/对称加密和非对称加密/">对称加密和非对称加密</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/23/HTTPS详解/">HTTPS详解.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/使用burpsuit抓手机APP/">使用burpsuit抓手机APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/18/网络安全法学习重点/">网络安全法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/28/XSS漏洞/">XSS漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/25/xss进阶/">XSS进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/16/sqlmap简单使用/">sqlmap简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/14/渗透测试面试问题集合/">渗透测试面试问题合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/08/爬虫技术及应用/">python爬虫技术及应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/08/可视化/">python爬虫数据可视化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/XSS、渗透/" style="font-size: 15px;">XSS、渗透</a> <a href="/tags/Eigrp，路由协议/" style="font-size: 15px;">Eigrp，路由协议</a> <a href="/tags/STP生成树协议，DHCP动态主机分配/" style="font-size: 15px;">STP生成树协议，DHCP动态主机分配</a> <a href="/tags/GRE-VPN/" style="font-size: 15px;">GRE-VPN</a> <a href="/tags/热备份路由协议，思科专有/" style="font-size: 15px;">热备份路由协议，思科专有</a> <a href="/tags/IP地址和VLSM（变长子网掩码）/" style="font-size: 15px;">IP地址和VLSM（变长子网掩码）</a> <a href="/tags/网络，NAT/" style="font-size: 15px;">网络，NAT</a> <a href="/tags/网络，OSPF/" style="font-size: 15px;">网络，OSPF</a> <a href="/tags/思科/" style="font-size: 15px;">思科</a> <a href="/tags/网络，QoS/" style="font-size: 15px;">网络，QoS</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/ACL/" style="font-size: 15px;">ACL</a> <a href="/tags/sqlmap/" style="font-size: 15px;">sqlmap</a> <a href="/tags/渗透，XSS漏洞/" style="font-size: 15px;">渗透，XSS漏洞</a> <a href="/tags/策略路由/" style="font-size: 15px;">策略路由</a> <a href="/tags/渗透/" style="font-size: 15px;">渗透</a> <a href="/tags/路由协议，路由重分/" style="font-size: 15px;">路由协议，路由重分</a> <a href="/tags/防火墙，安全/" style="font-size: 15px;">防火墙，安全</a> <a href="/tags/网络协议，https/" style="font-size: 15px;">网络协议，https</a> <a href="/tags/VLNA/" style="font-size: 15px;">VLNA</a> <a href="/tags/密码/" style="font-size: 15px;">密码</a> <a href="/tags/法律/" style="font-size: 15px;">法律</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">31</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">fairytwelve.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
